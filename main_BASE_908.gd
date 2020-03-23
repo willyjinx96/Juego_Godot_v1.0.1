@@ -1,5 +1,3 @@
-#COMENTARIO DE MAYDA :P ........................
-
 extends Node2D
 
 #Para las vidas por defecto 3
@@ -105,10 +103,3 @@ func play_musica():
 
 func _on_ambiente_finished():
 	$ambiente.play()
-<<<<<<< HEAD
-	
-# este comentario es para ver los cambios en el git dev_willy
-=======
-
-
->>>>>>> b82016945d680a4449ff91cdd73aec58bf65a170

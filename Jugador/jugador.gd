@@ -1,3 +1,4 @@
+#COMENTARIO DE MAYDA :P ........................
 extends Area2D
 
 #varialbes para el movimiento del avatar
@@ -43,8 +44,7 @@ func _physics_process(delta):
 		$CollisionShape2D.position.y = 493.705
 		$CollisionShape2D.scale.x = 0.6
 		$CollisionShape2D.scale.y = 1.9
-		
-	
+			
 	#Para el ataque
 	if atacar and not (saltar or agacharse):
 		if main.tambores > 0:

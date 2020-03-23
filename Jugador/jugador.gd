@@ -58,3 +58,5 @@ func choca():
 
 func normalidad():
 	$jugador_sprite.animation = "caminando"
+	
+	#cambios en dev_willy

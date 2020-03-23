@@ -1,0 +1,47 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/genoveva_bandera/genoveva5.png" type="Texture" id=1]
+[ext_resource path="res://assets/genoveva_bandera/genoveva4.png" type="Texture" id=2]
+[ext_resource path="res://assets/genoveva_bandera/genoveva2.png" type="Texture" id=3]
+[ext_resource path="res://assets/genoveva_bandera/genoveva3.png" type="Texture" id=4]
+[ext_resource path="res://assets/genoveva_bandera/genoveva6.png" type="Texture" id=5]
+[ext_resource path="res://assets/genoveva_bandera/genoveva1.png" type="Texture" id=6]
+[ext_resource path="res://Genoveva/genoveva.gd" type="Script" id=7]
+[ext_resource path="res://assets/genoveva_bandera/genoveva_entrega.png" type="Texture" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "caminando",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "entregar",
+"speed": 5.0
+} ]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 47.6189
+height = 29.1693
+
+[node name="genoveva" type="Area2D"]
+position = Vector2( 1116.58, 493.312 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="genoveva" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.148, 0.14 )
+frames = SubResource( 1 )
+animation = "entregar"
+frame = 1
+playing = true
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 2, 7 )
+shape = SubResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_genoveva_area_entered"]

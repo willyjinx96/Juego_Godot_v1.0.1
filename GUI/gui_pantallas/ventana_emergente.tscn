@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://GUI/gui_pantallas/fuentes_gui/ventana_pausa.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/gui/png/1.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/botones/bien_hover.png" type="Texture" id=3]
+[ext_resource path="res://assets/gui/botones/bien_pressed.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/botones/bien_active.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/botones/mal_pressed.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/botones/mal_hover.png" type="Texture" id=7]
+[ext_resource path="res://assets/gui/botones/mal_active.png" type="Texture" id=8]
+[ext_resource path="res://Fuentes/Porky_s/porkh.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://GUI/gui_pantallas/ventana_emergente.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 47
+extra_spacing_char = 7
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "entrada"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 0.600277, 0.591545 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "salida"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.600277, 0.591545 ), Vector2( 1e-05, 1e-05 ) ]
+}
+
+[node name="atencion" type="Sprite"]
+position = Vector2( 503.458, 292.158 )
+scale = Vector2( 1e-05, 1e-05 )
+texture = ExtResource( 2 )
+script = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -196.885
+margin_top = -277.263
+margin_right = 172.115
+margin_bottom = -205.263
+custom_fonts/font = ExtResource( 1 )
+custom_colors/font_color = Color( 0.870588, 0.705882, 0.584314, 1 )
+text = "ATENCION"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="mensaje_emergente" type="Label" parent="."]
+margin_left = -297.0
+margin_top = -71.0
+margin_right = 267.0
+margin_bottom = 156.0
+custom_fonts/font = SubResource( 1 )
+text = "texto de prueba para ver que esta correcto todo"
+align = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_aceptar" type="TextureButton" parent="."]
+margin_left = -276.0
+margin_top = 185.0
+margin_right = -130.0
+margin_bottom = 333.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_rechazar" type="TextureButton" parent="."]
+margin_left = 120.565
+margin_top = 187.894
+margin_right = 278.565
+margin_bottom = 337.894
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animacion" type="AnimationPlayer" parent="."]
+autoplay = "entrada"
+anims/entrada = SubResource( 2 )
+anims/salida = SubResource( 3 )
+[connection signal="pressed" from="btn_aceptar" to="." method="_on_btn_aceptar_pressed"]
+[connection signal="pressed" from="btn_rechazar" to="." method="_on_btn_rechazar_pressed"]
+[connection signal="animation_finished" from="animacion" to="." method="_on_animacion_animation_finished"]

@@ -13,11 +13,14 @@ func _process(delta):
 	if tiempo_vida <= 0:
 		queue_free()
 
-
+var scn_pregunta =preload("res://GUI/Pregunta/Pregunta.tscn")
 func _on_roca_area_entered(area):
 	if area.name == "jugador":
+		var vtn_pregunta= scn_pregunta.instance()
+		get_parent().add_child(vtn_pregunta)
+		get_tree().paused =true
 		jugador.choca()
-		main.quitar_vidas()
+		#main.quitar_vidas()
 		hide()
 		print("pregunta")
 	elif area.name == "fireball":

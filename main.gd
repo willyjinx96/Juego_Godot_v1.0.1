@@ -15,7 +15,7 @@ var lista_tambores = []
 func _ready():
 	crear_vidas()
 	crear_tambores()
-	#play_musica()
+	play_musica()
 	
 func _process(delta):
 	var ventana = preload("res://GUI/gui_pantallas/ventana_pausa.tscn") 

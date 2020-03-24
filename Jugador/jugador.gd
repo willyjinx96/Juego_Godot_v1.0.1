@@ -9,6 +9,10 @@ var velocidad = Vector2()
 var velocidad_salto = -1300
 var modificador_gravedad = 2.3
 onready var main = get_node("/root/main")
+
+var bandera = preload("res://GUI/bandera_animacion.tscn")
+
+var n_ban=bandera.instance()
 #para llamar a la escena genoveva
 
 # para ataque
@@ -59,8 +63,11 @@ func _physics_process(delta):
 		
 	# para llamar a Genoveva
 	if agarrar:
-		if main.banderas > 0:
+		if main.banderas ==1:
 			emit_signal("geno")
+			main.banderas=0
+			n_ban.activa()
+			
 			
 		
 func choca():
@@ -71,7 +78,29 @@ func normalidad():
 
 func agarrando():
 	$jugador_sprite.animation = "agarra"
-	velocidad = Vector2(0,0)
+	#velocidad = Vector2(0,0)
 	
 	#cambios en dev_willy
 
+
+
+func _on_jugador_area_entered(area):
+	if area.name == "bandera":
+		#main.bandera = 1
+		get_parent().add_child(n_ban)
+		n_ban.inactiva()
+#	elif area.name =="genoveva":
+#		get_tree().paused=true
+#		self.pause_mode=Node.PAUSE_MODE_PROCESS
+#		area.pause_mode=Node.PAUSE_MODE_PROCESS
+
+func _on_jugador_area_exited(area):
+	if area.name == "genoveva":
+#		get_tree().paused = false
+		normalidad()
+		main.banderas=0
+		get_parent().remove_child(n_ban)
+
+
+func _on_jugador_geno():
+	main.bandera=0

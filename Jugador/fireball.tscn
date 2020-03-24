@@ -22,7 +22,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 49.2772, 60.2825 )
+extents = Vector2( 58.8469, 84.8468 )
 
 [node name="fireball" type="Area2D"]
 pause_mode = 1
@@ -34,9 +34,9 @@ position = Vector2( 24.8652, 0.181885 )
 scale = Vector2( 0.0965161, 0.123842 )
 frames = SubResource( 1 )
 animation = "pentagrama"
-frame = 5
+frame = 10
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2.51401, 0.54895 )
+position = Vector2( 3.74179, -22.7781 )
 shape = SubResource( 2 )

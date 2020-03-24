@@ -21,6 +21,7 @@ func _process(delta):
 
 func _on_tnt_area_entered(area):
 	if area.name == "jugador":
+		Score.score-=10
 		$tnt.animation = "explosion"
 		print("xp explo")
 		$tnt.position.x = 24.901
@@ -32,6 +33,7 @@ func _on_tnt_area_entered(area):
 		#hide()
 		print("tnt")
 	elif area.name == "fireball":
+		Score.score+=20
 		queue_free()
 
 

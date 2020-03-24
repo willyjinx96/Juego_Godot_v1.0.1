@@ -53,10 +53,13 @@ script = ExtResource( 6 )
 position = Vector2( 42, 104 )
 
 [node name="spaw_bandera" type="Position2D" parent="."]
-pause_mode = 1
 position = Vector2( 1090.6, 282.704 )
 script = ExtResource( 9 )
-intervalo = 3
+
+[node name="barra_bandera" type="Position2D" parent="." groups=[
+"gui",
+]]
+position = Vector2( 906, 46 )
 
 [node name="spawn_genoveva" type="Position2D" parent="."]
 position = Vector2( 1083, 479 )

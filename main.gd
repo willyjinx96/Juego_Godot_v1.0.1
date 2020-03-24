@@ -31,6 +31,8 @@ func _process(delta):
 		if	get_tree().paused == false:
 			get_tree().get_nodes_in_group("principal")[0].add_child(ventana.instance())
 			get_tree().paused = true
+	
+	$num_score.text=("("+str(Score.score)+")")
 #	if Input.is_action_just_pressed("ui_left"):
 #		if banderas>0:
 #			var n_ban =bandera.instance()

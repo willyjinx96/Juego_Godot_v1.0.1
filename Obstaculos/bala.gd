@@ -16,12 +16,14 @@ func _process(delta):
 
 func _on_bala_area_entered(area):
 	if area.name == "jugador":
+		Score.score-=10
 		jugador.choca()
 		main.quitar_vidas()
 		hide()
 		print("bala")
 		
 	elif area.name == "fireball":
+		Score.score+=10
 		queue_free()
 
 

@@ -19,6 +19,10 @@ config/name="version_final"
 run/main_scene="res://main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Score="*res://Escenas Globales (Singletons)/Score.gd"
+
 [display]
 
 window/size/resizable=false

@@ -1,6 +1,6 @@
 extends Area2D
 var velocidad = Vector2(-400, 0)
-var tiempo_vida = 3
+var tiempo_vida = 7
 onready var jugador = get_parent().get_node("jugador")
 onready var main = get_parent()
 # Called when the node enters the scene tree for the first time.
@@ -17,8 +17,16 @@ func _on_genoveva_area_entered(area):
 	if area.name == "jugador":
 		$genoveva.animation = "entregar"
 		jugador.agarrando()
+		main.add_vidas()
 		velocidad = Vector2(0,0)
 
 func _on_genoveva_area_exited(area):
 	if area.name == "jugador":
 		jugador.normalidad()
+
+
+func _on_genoveva_animation_finished():
+	if $genoveva.animation == "entregar":
+		$genoveva.animation = "caminando"
+		velocidad =Vector2(-400, 0)
+	

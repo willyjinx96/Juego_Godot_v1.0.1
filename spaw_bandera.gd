@@ -3,7 +3,7 @@ extends Position2D
 var power_ups = [preload("res://Power_up/bandera.tscn")]
 
 var tiempo = 0.0
-var intervalo = 30
+export var  intervalo = 30
 var intervalo_min = 30
 var intervalo_max = 90
 

@@ -59,7 +59,6 @@ func quitar_vidas():
 func add_vidas():
 	if vidas < 3:
 		c_vidas = c_vidas-vidas
-		#var i = lista_vidas.size()
 		for i in c_vidas:
 			var nueva_vida= vida.instance()
 			get_tree().get_nodes_in_group("gui")[0].add_child(nueva_vida)

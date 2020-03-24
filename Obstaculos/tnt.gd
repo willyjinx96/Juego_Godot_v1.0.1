@@ -33,7 +33,7 @@ func _on_tnt_area_entered(area):
 		#hide()
 		print("tnt")
 	elif area.name == "fireball":
-		Score.score+=10
+		Score.score+=20
 		queue_free()
 
 

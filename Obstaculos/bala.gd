@@ -23,7 +23,7 @@ func _on_bala_area_entered(area):
 		print("bala")
 		
 	elif area.name == "fireball":
-		Score.score+=10
+		Score.score+=20
 		queue_free()
 
 

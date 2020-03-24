@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/bandera/bandera1.png" type="Texture" id=1]
 [ext_resource path="res://assets/bandera/bandera2.png" type="Texture" id=2]
@@ -28,10 +28,31 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Animation" id=2]
+resource_name = "entrada"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 957.272, -49.3851 ), Vector2( 960.955, 43.9229 ), Vector2( 959.728, 36.5565 ), Vector2( 958.5, 45.1507 ) ]
+}
+
 [node name="bandera_animacion" type="AnimatedSprite"]
-position = Vector2( 824.676, 155.647 )
+pause_mode = 1
+position = Vector2( 957.272, -49.3851 )
 scale = Vector2( 0.165591, 0.147929 )
 frames = SubResource( 1 )
 animation = "inactiva"
 playing = true
 script = ExtResource( 14 )
+
+[node name="animacion" type="AnimationPlayer" parent="."]
+autoplay = "entrada"
+anims/entrada = SubResource( 2 )

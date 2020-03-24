@@ -1,7 +1,7 @@
 extends AnimatedSprite
 
 func activa():
-	$bandera_animacion.animated = "activa"
+	self.animation = "activa"
 	
 func inactiva():
-	$bandera_animacion.animated = "inactiva"
+	self.animation = "inactiva"

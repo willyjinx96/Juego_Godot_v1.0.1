@@ -1,0 +1,6 @@
+[gd_scene format=2]
+
+[node name="barra_bandera" type="Position2D" groups=[
+"gui",
+]]
+position = Vector2( 906, 46 )

@@ -17,7 +17,7 @@ animations = [ {
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
-"loop": true,
+"loop": false,
 "name": "entregar",
 "speed": 5.0
 } ]
@@ -46,3 +46,4 @@ position = Vector2( 2, 7 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_genoveva_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_genoveva_area_exited"]
+[connection signal="animation_finished" from="genoveva" to="." method="_on_genoveva_animation_finished"]

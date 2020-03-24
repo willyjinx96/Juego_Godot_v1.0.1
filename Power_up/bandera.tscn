@@ -26,6 +26,7 @@ animations = [ {
 extents = Vector2( 36.5, 23.317 )
 
 [node name="bandera" type="Area2D"]
+pause_mode = 1
 position = Vector2( 1376, 220 )
 script = ExtResource( 13 )
 __meta__ = {
@@ -36,7 +37,7 @@ __meta__ = {
 position = Vector2( 4.95911e-05, 2.00002 )
 scale = Vector2( 0.165591, 0.147929 )
 frames = SubResource( 1 )
-frame = 7
+frame = 10
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -4,6 +4,7 @@ extends Node2D
 
 #Para las vidas por defecto 3
 export var vidas = 3
+var c_vidas= vidas
 var offset_vida = 80
 var vida = preload("res://GUI/vida.tscn")
 var lista_vidas = []
@@ -14,11 +15,9 @@ var tambor = preload("res://GUI/tambor_ataque.tscn")
 var lista_tambores = []
 
 # para la barra de banderas
-export var nro_banderas = 1
-export var banderas = 0
+var banderas = 0
 var bandera = preload("res://GUI/bandera_animacion.tscn")
-var lista_banderas = []
-onready var bandera_animacion = get_node("bandera_animacion")
+
 var genoveva = preload("res://Genoveva/genoveva.tscn")
 
 func _ready():
@@ -32,8 +31,13 @@ func _process(delta):
 		if	get_tree().paused == false:
 			get_tree().get_nodes_in_group("principal")[0].add_child(ventana.instance())
 			get_tree().paused = true
+#	if Input.is_action_just_pressed("ui_left"):
+#		if banderas>0:
+#			var n_ban =bandera.instance()
+#			n_ban.activa()
 	
 func crear_vidas():
+	#vidas =3
 	for i in vidas:
 		var nueva_vida = vida.instance()
 		get_tree().get_nodes_in_group("gui")[0].add_child(nueva_vida)
@@ -44,9 +48,25 @@ func crear_vidas():
 func quitar_vidas():
 	if vidas > 1:
 		vidas -= 1
+		print("vidas restantes: ", vidas)
 		lista_vidas[vidas].queue_free()
+		lista_vidas.resize(vidas)
 	else:
 		print("moriste")
+
+func add_vidas():
+	if vidas < 3:
+		c_vidas = c_vidas-vidas
+		#var i = lista_vidas.size()
+		for i in c_vidas:
+			var nueva_vida= vida.instance()
+			get_tree().get_nodes_in_group("gui")[0].add_child(nueva_vida)
+			nueva_vida.global_position = $barra_vidas.global_position
+			nueva_vida.global_position.x += offset_vida * lista_vidas.size()
+			lista_vidas.append(nueva_vida)
+			vidas +=1
+		print(c_vidas," vidas agregadas")
+		c_vidas=vidas
 
 func crear_tambores():
 	for i in tambores:
@@ -64,6 +84,7 @@ func add_tambor():
 		nuevo_tambor.global_position = $barra_tambor.global_position
 		nuevo_tambor.global_position.x += offset_vida * lista_tambores.size()
 		lista_tambores.append(nuevo_tambor)
+
 		
 func quitar_tambores():
 	if tambores > 0:
@@ -74,31 +95,31 @@ func quitar_tambores():
 		
 		print("sin tambor")
 				
-func crear_banderas():
-	for i in banderas:
-		var nueva_bandera = bandera.instance()
-		get_tree().get_nodes_in_group("gui")[2].add_child(nueva_bandera)
-		nueva_bandera.global_position = $barra_bandera.global_position
-		nueva_bandera.global_position.x += offset_vida * i
-		lista_banderas.append(nueva_bandera)
+#func crear_banderas():
+#	for i in banderas:
+#		var nueva_bandera = bandera.instance()
+#		get_tree().get_nodes_in_group("gui")[2].add_child(nueva_bandera)
+#		nueva_bandera.global_position = $barra_bandera.global_position
+#		nueva_bandera.global_position.x += offset_vida * i
+#		lista_banderas.append(nueva_bandera)
 
 func add_bandera():
-	if banderas < 1:
-		banderas += 1
-		var nueva_bandera = bandera.instance()
-		get_tree().get_nodes_in_group("gui")[2].add_child(nueva_bandera)
-		nueva_bandera.global_position = $barra_bandera.global_position
-		nueva_bandera.global_position.x += offset_vida * lista_banderas.size()
-		lista_banderas.append(nueva_bandera)
+	if banderas == 0:
+		banderas = 1
+#		var nueva_bandera = bandera.instance()
+#		get_tree().get_nodes_in_group("gui")[2].add_child(nueva_bandera)
+#		nueva_bandera.global_position = $barra_bandera.global_position
+#		nueva_bandera.global_position.x += offset_vida * lista_banderas.size()
+#		lista_banderas.append(nueva_bandera)
 
-func quitar_banderas():
-	print(banderas)
-	if banderas > 0:
-		banderas -= 1
-		lista_banderas[banderas].queue_free()
-		lista_banderas.resize(banderas)
-	else:
-		print("sin bandera")
+#func quitar_banderas():
+#	print(banderas)
+#	if banderas > 0:
+#		banderas -= 1
+#		lista_banderas[banderas].queue_free()
+#		lista_banderas.resize(banderas)
+#	else:
+#		print("sin bandera")
 
 func _on_jugador_fuego():
 	$spawn_fireball.crearFuego()
@@ -106,7 +127,7 @@ func _on_jugador_fuego():
 
 func _on_jugador_geno():
 	$spawn_genoveva.instanciarGenoveva()
-	quitar_banderas()
+	#quitar_banderas()
 	
 
 #Cuando ternina la cancion

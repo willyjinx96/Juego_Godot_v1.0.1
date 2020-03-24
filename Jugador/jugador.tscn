@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Jugador/jugador.gd" type="Script" id=1]
 [ext_resource path="res://assets/personajes/Juancito/juan4_e.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://assets/personajes/Juancito/agachar_juan44.png" type="Texture" id=9]
 [ext_resource path="res://assets/personajes/Juancito/agachar_juan3.png" type="Texture" id=10]
 [ext_resource path="res://assets/personajes/Juancito/agachar_juan2.png" type="Texture" id=11]
+[ext_resource path="res://assets/personajes/Juancito/juan_agarra.png" type="Texture" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -23,6 +24,11 @@ animations = [ {
 "loop": false,
 "name": "down",
 "speed": 12.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 12 ) ],
+"loop": true,
+"name": "agarra",
+"speed": 2.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
 "loop": false,
@@ -45,7 +51,7 @@ script = ExtResource( 1 )
 position = Vector2( 106.579, 493.312 )
 scale = Vector2( 0.148118, 0.1397 )
 frames = SubResource( 1 )
-animation = "caminando"
+animation = "agarra"
 frame = 1
 speed_scale = 2.0
 playing = true

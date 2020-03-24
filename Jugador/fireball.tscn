@@ -34,7 +34,7 @@ position = Vector2( 24.8652, 0.181885 )
 scale = Vector2( 0.0965161, 0.123842 )
 frames = SubResource( 1 )
 animation = "pentagrama"
-frame = 1
+frame = 5
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -14,9 +14,12 @@ var tambor = preload("res://GUI/tambor_ataque.tscn")
 var lista_tambores = []
 
 # para la barra de banderas
-export var banderas = 1
+export var nro_banderas = 1
+export var banderas = 0
 var bandera = preload("res://GUI/bandera_animacion.tscn")
 var lista_banderas = []
+onready var bandera_animacion = get_node("bandera_animacion")
+var genoveva = preload("res://Genoveva/genoveva.tscn")
 
 func _ready():
 	crear_vidas()
@@ -74,23 +77,37 @@ func quitar_tambores():
 func crear_banderas():
 	for i in banderas:
 		var nueva_bandera = bandera.instance()
-		get_tree().get_nodes_in_group("gui")[1].add_child(nueva_bandera)
+		get_tree().get_nodes_in_group("gui")[2].add_child(nueva_bandera)
 		nueva_bandera.global_position = $barra_bandera.global_position
 		nueva_bandera.global_position.x += offset_vida * i
 		lista_banderas.append(nueva_bandera)
 
 func add_bandera():
-	if banderas <=1:
+	if banderas < 1:
 		banderas += 1
 		var nueva_bandera = bandera.instance()
-		get_tree().get_nodes_in_group("gui")[1].add_child(nueva_bandera)
+		get_tree().get_nodes_in_group("gui")[2].add_child(nueva_bandera)
 		nueva_bandera.global_position = $barra_bandera.global_position
 		nueva_bandera.global_position.x += offset_vida * lista_banderas.size()
 		lista_banderas.append(nueva_bandera)
 
+func quitar_banderas():
+	print(banderas)
+	if banderas > 0:
+		banderas -= 1
+		lista_banderas[banderas].queue_free()
+		lista_banderas.resize(banderas)
+	else:
+		print("sin bandera")
+
 func _on_jugador_fuego():
 	$spawn_fireball.crearFuego()
 	quitar_tambores()
+
+func _on_jugador_geno():
+	$spawn_genoveva.instanciarGenoveva()
+	quitar_banderas()
+	
 
 #Cuando ternina la cancion
 func _on_musica_principal_finished():

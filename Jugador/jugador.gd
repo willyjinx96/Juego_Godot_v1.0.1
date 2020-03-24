@@ -9,8 +9,11 @@ var velocidad = Vector2()
 var velocidad_salto = -1300
 var modificador_gravedad = 2.3
 onready var main = get_node("/root/main")
+#para llamar a la escena genoveva
+
 # para ataque
 signal fuego
+signal geno
 
 func _ready():
 	set_position(pos)
@@ -21,6 +24,7 @@ func _physics_process(delta):
 	var saltar = Input.is_action_pressed("ui_up")
 	var atacar = Input.is_action_just_pressed("ui_right")
 	var agacharse = Input.is_action_pressed("ui_down")
+	var agarrar = Input.is_action_just_pressed("ui_left")
 #funciones para el movimiento del avatar	
 	if saltar:
 		velocidad.y += gravedad * delta
@@ -52,11 +56,22 @@ func _physics_process(delta):
 			emit_signal("fuego")
 	if Input.is_action_just_released("ui_right") and not agacharse:
 		$jugador_sprite.animation = "caminando"
-
+		
+	# para llamar a Genoveva
+	if agarrar:
+		if main.banderas > 0:
+			emit_signal("geno")
+			
+		
 func choca():
 	$jugador_sprite.animation = "lastimado"
 
 func normalidad():
 	$jugador_sprite.animation = "caminando"
+
+func agarrando():
+	$jugador_sprite.animation = "agarra"
+	velocidad = Vector2(0,0)
 	
 	#cambios en dev_willy
+

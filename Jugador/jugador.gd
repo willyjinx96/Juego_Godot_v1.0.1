@@ -89,14 +89,15 @@ func _on_jugador_area_entered(area):
 		#main.bandera = 1
 		get_parent().add_child(n_ban)
 		n_ban.inactiva()
+		
 #	elif area.name =="genoveva":
 #		get_tree().paused=true
 #		self.pause_mode=Node.PAUSE_MODE_PROCESS
 #		area.pause_mode=Node.PAUSE_MODE_PROCESS
-
 func _on_jugador_area_exited(area):
 	if area.name == "genoveva":
-#		get_tree().paused = false
+
+		get_tree().paused = false
 		normalidad()
 		main.banderas=0
 		get_parent().remove_child(n_ban)

@@ -48,3 +48,4 @@ position = Vector2( -0.172611, 0.872894 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_tnt_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_tnt_area_exited"]
+[connection signal="choco" from="." to="." method="_on_tnt_choco"]

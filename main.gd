@@ -37,6 +37,7 @@ func _process(delta):
 #		if banderas>0:
 #			var n_ban =bandera.instance()
 #			n_ban.activa()
+	#Score.verf_score(Score.score)
 	
 func crear_vidas():
 	#vidas =3
@@ -46,6 +47,7 @@ func crear_vidas():
 		nueva_vida.global_position = $barra_vidas.global_position
 		nueva_vida.global_position.x += offset_vida * i
 		lista_vidas.append(nueva_vida)
+	
 
 func quitar_vidas():
 	if vidas > 1:
@@ -146,3 +148,4 @@ func _on_ambiente_finished():
 	$ambiente.play()
 	
 # este comentario es para ver los cambios en el git dev_willy
+

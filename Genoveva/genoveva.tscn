@@ -9,7 +9,6 @@
 [ext_resource path="res://Genoveva/genoveva.gd" type="Script" id=7]
 [ext_resource path="res://assets/personajes/genoveva_bandera/genoveva_entrega.png" type="Texture" id=8]
 
-
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],

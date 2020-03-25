@@ -3,6 +3,11 @@ var velocidad = Vector2(-300, 0)
 var tiempo_vida = 5
 onready var jugador = get_parent().get_node("jugador")
 onready var main = get_parent()
+
+#Para sumar puntos
+var salto = false
+signal choco
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$tnt.animation = "sin_explotar"
@@ -13,14 +18,22 @@ func _ready():
 	$tnt.scale.y = 0.266
 		
 func _process(delta):
-	set_position(position + velocidad * delta)
+	set_position(position + (velocidad-Score.velocidad_global) * delta)
 	tiempo_vida = tiempo_vida - delta
 	if tiempo_vida <= 0:
 		queue_free()
+	
+	#pregunta si salto el objeto
+	if get_position().x < jugador.get_position().x:
+		if not salto:
+			salto=true
+			Score.score += 30
+			Score.score_vel+=30
 
 
 func _on_tnt_area_entered(area):
 	if area.name == "jugador":
+		emit_signal("choco")#para saber que choco con algo
 		Score.score-=10
 		$tnt.animation = "explosion"
 		print("xp explo")
@@ -34,8 +47,13 @@ func _on_tnt_area_entered(area):
 		print("tnt")
 	elif area.name == "fireball":
 		Score.score+=20
+		Score.score_vel+=20
 		queue_free()
 
 
 func _on_tnt_area_exited(area):
 	jugador.normalidad()
+
+
+func _on_tnt_choco():
+	salto = true

@@ -8,7 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	set_position(position + velocidad * delta)
+	set_position(position + (velocidad-Score.velocidad_global) * delta)
 	tiempo_vida = tiempo_vida - delta
 	if tiempo_vida <= 0:
 		queue_free()
@@ -17,6 +17,8 @@ func _on_genoveva_area_entered(area):
 	if area.name == "jugador":
 		$genoveva.animation = "entregar"
 		jugador.agarrando()
+		Score.score_vel+=40
+		Score.score +=40
 		main.add_vidas()
 		velocidad = Vector2(0,0)
 

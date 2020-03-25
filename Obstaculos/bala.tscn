@@ -34,3 +34,4 @@ scale = Vector2( 0.15625, 0.117648 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_bala_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_bala_area_exited"]
+[connection signal="choco" from="." to="." method="_on_bala_choco"]

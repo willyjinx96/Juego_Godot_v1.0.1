@@ -8,7 +8,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _process(delta):
-	set_position(position + velocidad * delta)
+	set_position(position + (velocidad-Score.velocidad_global) * delta)
 	tiempo_vida = tiempo_vida - delta
 	if tiempo_vida <= 0:
 		queue_free()

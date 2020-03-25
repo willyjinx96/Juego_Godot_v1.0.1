@@ -1,3 +1,4 @@
+#decoracion
 extends ParallaxBackground
 var parallax_offset = Vector2()
 var velocidad = Vector2(-300, 0)
@@ -8,5 +9,5 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	parallax_offset -= velocidad * -delta
+	parallax_offset -= (velocidad-Score.velocidad_global)* -delta
 	set_scroll_offset(parallax_offset)

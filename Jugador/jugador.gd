@@ -101,6 +101,7 @@ func _on_jugador_area_exited(area):
 		normalidad()
 		main.banderas=0
 		get_parent().remove_child(n_ban)
+		#n_ban.queue_free()
 
 
 func _on_jugador_geno():

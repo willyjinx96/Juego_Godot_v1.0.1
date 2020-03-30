@@ -37,7 +37,6 @@ __meta__ = {
 scale = Vector2( 0.148, 0.14 )
 frames = SubResource( 1 )
 animation = "caminando"
-frame = 3
 playing = true
 flip_h = true
 

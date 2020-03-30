@@ -4,12 +4,20 @@ extends Node2D
 var score=10
 var score_vel=0
 var puntaje_max=0
-
 #Variables para la acerelacion
 var velocidad_global = Vector2(0,0)
 export var cambio_vel=200
+
+var array_id =[]
+var cont =1
+var limit=100
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	for i in limit:
+		array_id.append(cont)
+		cont+=1
+	#Ahora debemos mezclar el array
+	array_id.shuffle() #suffle() mezcla los elementos del array
 	pass # Replace with function body.
 
 

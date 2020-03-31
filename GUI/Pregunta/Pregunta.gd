@@ -1,8 +1,12 @@
 extends Sprite
 
 const SQLite = preload("res://lib/gdsqlite.gdns")
+var resp_correcta
+var index_selected
+signal sel
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$btn_continuar.disabled=true
 	var db = SQLite.new()
 	#Abrimos nuestra base de datos
 	db.open_db("res://Data_Base/JUEGO_PACIFICO.db")
@@ -33,7 +37,7 @@ func _ready():
 
 	opciones.append(respuesta_correcta.respuesta)
 	print(opciones)
-
+	resp_correcta= respuesta_correcta.respuesta
 	#Realizamos la consulta para sacar las opciones
 	var tipo = respuesta_correcta.tipo
 
@@ -56,7 +60,6 @@ func _ready():
 		$ItemList.add_item(str(i))
 
 	print(opciones)
-	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,3 +75,20 @@ func _on_anim_pregunta_animation_finished(anim_name):
 func _on_btn_continuar_pressed():
 	$anim_pregunta.play("salida")
 	get_tree().paused=false
+
+func _on_ItemList_item_selected(index):
+	index_selected=index
+	emit_signal("sel")
+	$btn_continuar.disabled=false
+
+
+func _on_Pregunta_sel():
+	var option_selected = $ItemList.get_item_text(index_selected)
+	if resp_correcta == option_selected:
+		print("CORRECTO")
+	else:
+		print("INCORRECTO")
+	pass
+	for i in range(2):
+		if i !=index_selected:
+			$ItemList.set_item_disabled(i,true)

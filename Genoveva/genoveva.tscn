@@ -24,7 +24,7 @@ animations = [ {
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 47.6189
-height = 29.1693
+height = 241.798
 
 [node name="genoveva" type="Area2D"]
 position = Vector2( 1116.58, 493.312 )
@@ -37,11 +37,12 @@ __meta__ = {
 scale = Vector2( 0.148, 0.14 )
 frames = SubResource( 1 )
 animation = "caminando"
+frame = 1
 playing = true
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 2, 7 )
+position = Vector2( 2, -91 )
 shape = SubResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_genoveva_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_genoveva_area_exited"]

@@ -78,7 +78,8 @@ func _on_btn_continuar_pressed():
 
 func _on_ItemList_item_selected(index):
 	index_selected=index
-	emit_signal("sel")
+	if not $ItemList.is_item_disabled(index):
+		emit_signal("sel")
 	$btn_continuar.disabled=false
 
 
@@ -89,6 +90,6 @@ func _on_Pregunta_sel():
 	else:
 		print("INCORRECTO")
 	pass
-	for i in range(2):
+	for i in $ItemList.get_item_count():
 		if i !=index_selected:
 			$ItemList.set_item_disabled(i,true)

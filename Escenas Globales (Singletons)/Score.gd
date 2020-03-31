@@ -29,6 +29,9 @@ func verf_score(scr):
 		print("cambiando la vel a ",velocidad_global)
 	pass
 
+func mezclar():
+	array_id.shuffle()
+	
 func max_score():
 	if score>puntaje_max:
 		puntaje_max=score

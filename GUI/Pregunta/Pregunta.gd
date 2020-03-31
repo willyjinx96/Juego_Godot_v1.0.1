@@ -7,6 +7,7 @@ func _ready():
 	#Abrimos nuestra base de datos
 	db.open_db("res://Data_Base/JUEGO_PACIFICO.db")
 	
+	Score.mezclar()
 	var id_pregunta = Score.array_id.pop_front()
 	#var id_pregunta = 24
 	#Realizamos la consulta para sacar la pregunta

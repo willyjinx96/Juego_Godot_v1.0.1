@@ -11,15 +11,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "caminando",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "entregar",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "caminando",
+"speed": 7.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -27,6 +27,7 @@ radius = 47.6189
 height = 29.1693
 
 [node name="genoveva" type="Area2D"]
+pause_mode = 1
 position = Vector2( 1116.58, 493.312 )
 script = ExtResource( 7 )
 __meta__ = {
@@ -37,6 +38,7 @@ __meta__ = {
 scale = Vector2( 0.148, 0.14 )
 frames = SubResource( 1 )
 animation = "caminando"
+frame = 4
 playing = true
 flip_h = true
 

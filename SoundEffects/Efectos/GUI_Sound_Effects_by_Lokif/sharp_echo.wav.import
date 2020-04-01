@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sharp_echo.wav-64d631bf0e5dfe4d4a6ad481ad34dc8b.sample"
+
+[deps]
+
+source_file="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/sharp_echo.wav"
+dest_files=[ "res://.import/sharp_echo.wav-64d631bf0e5dfe4d4a6ad481ad34dc8b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

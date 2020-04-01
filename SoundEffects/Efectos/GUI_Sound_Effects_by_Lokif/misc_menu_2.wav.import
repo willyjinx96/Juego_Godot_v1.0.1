@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/misc_menu_2.wav-4bb918d232138cd764297333118960ab.sample"
+
+[deps]
+
+source_file="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/misc_menu_2.wav"
+dest_files=[ "res://.import/misc_menu_2.wav-4bb918d232138cd764297333118960ab.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

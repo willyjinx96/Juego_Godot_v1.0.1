@@ -6,6 +6,7 @@ var index_selected
 signal sel
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$fx_entrada.play()
 	$btn_continuar.disabled=true
 	var db = SQLite.new()
 	#Abrimos nuestra base de datos
@@ -74,6 +75,7 @@ func _on_anim_pregunta_animation_finished(anim_name):
 
 func _on_btn_continuar_pressed():
 	$anim_pregunta.play("salida")
+	$fx_salida.play()
 	get_tree().paused=false
 
 func _on_ItemList_item_selected(index):
@@ -86,8 +88,16 @@ func _on_ItemList_item_selected(index):
 func _on_Pregunta_sel():
 	var option_selected = $ItemList.get_item_text(index_selected)
 	if resp_correcta == option_selected:
+		Score.score+=40
+		$resultado/animacion.play("correcto")
+		$fx_correcto.play()
+		$resultado.text="correcto"
 		print("CORRECTO")
 	else:
+		Score.score-=40
+		$resultado/animacion.play("incorrecto")
+		$resultado.text="incorrecto"
+		$fx_incorrecto.play()
 		print("INCORRECTO")
 	pass
 	for i in $ItemList.get_item_count():

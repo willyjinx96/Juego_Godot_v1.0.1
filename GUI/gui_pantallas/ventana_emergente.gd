@@ -6,6 +6,7 @@ var opcion = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$fx_sonido.play()
 	pass # Replace with function body.
 
 
@@ -15,6 +16,7 @@ func _ready():
 
 
 func _on_btn_rechazar_pressed():
+	$btn_rechazar/fx_rechazar.play()
 	$animacion.play_backwards("entrada")
 
 
@@ -25,6 +27,7 @@ func _on_animacion_animation_finished(anim_name):
 
 
 func _on_btn_aceptar_pressed():
+	$btn_aceptar/fx_aceptar.play()
 	if opcion == 1:
 		print("Volviendo al menu")
 	elif opcion == 2:

@@ -19,3 +19,9 @@ func _on_jugar_pressed():
 
 func _on_tutorial_pressed():
 	pass # Replace with function body.
+
+
+
+func _on_theme_finished():
+	$theme.play()
+	pass # Replace with function body.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://assets/gui/png/Window.png" type="Texture" id=1]
 [ext_resource path="res://Fuentes/Candy_Randy/candyrandy.ttf" type="DynamicFontData" id=2]
@@ -8,11 +8,6 @@
 [ext_resource path="res://assets/gui/botones/boton_plomo.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/botones/boton_Verde.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/botones/boton_rojo.png" type="Texture" id=8]
-[ext_resource path="res://SoundEffects/Efectos/Menu FX example/Item1A.wav" type="AudioStream" id=9]
-[ext_resource path="res://SoundEffects/Efectos/Menu FX example/Item1B.wav" type="AudioStream" id=10]
-[ext_resource path="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/negative_2.wav" type="AudioStream" id=11]
-[ext_resource path="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/positive.wav" type="AudioStream" id=12]
-[ext_resource path="res://Fuentes/Error.ttf" type="DynamicFontData" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -70,6 +65,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=12]
 resource_name = "salida"
+length = 0.6
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
@@ -81,104 +77,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 527.958, 304.726 ), Vector2( 526.01, 365.115 ), Vector2( 526.01, 322.259 ), Vector2( 526.01, 363.167 ), Vector2( 526.01, 343.687 ), Vector2( 549.386, 452.776 ), Vector2( 796.785, 937.833 ) ]
-}
-
-[sub_resource type="DynamicFont" id=13]
-size = 300
-outline_color = Color( 0.184314, 0.054902, 0.054902, 1 )
-extra_spacing_char = 7
-font_data = ExtResource( 13 )
-
-[sub_resource type="Animation" id=14]
-resource_name = "correcto"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:custom_colors/font_color")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.7 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.27451, 0.576471, 0.235294, 1 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:percent_visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=15]
-resource_name = "incorrecto"
-length = 1.1
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:rect_scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1.3, 1.3 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:percent_visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.6, 0.8, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 1.0, 0.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:custom_colors/font_color")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.584314, 0.160784, 0.152941, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath(".:custom_colors/font_color_shadow")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 1 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Color( 0.117647, 0.101961, 0.0705882, 1 ) ]
 }
 
 [node name="Pregunta" type="Sprite"]
@@ -210,7 +108,7 @@ margin_top = -140.0
 margin_right = 337.0
 margin_bottom = -4.0
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.858824, 0.482353, 0.2, 1 )
+custom_colors/font_color = Color( 0.980392, 0.964706, 0.952941, 1 )
 text = "ESTE ES UN TEXTO DE PREGUNTA PARA LA PRUEBA JEJEJE?"
 align = 1
 autowrap = true
@@ -269,44 +167,6 @@ __meta__ = {
 autoplay = "entrada"
 anims/entrada = SubResource( 11 )
 anims/salida = SubResource( 12 )
-
-[node name="fx_entrada" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 9 )
-volume_db = -1.261
-
-[node name="fx_salida" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 10 )
-volume_db = -3.152
-
-[node name="fx_correcto" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 12 )
-
-[node name="fx_incorrecto" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 11 )
-volume_db = 12.605
-
-[node name="resultado" type="Label" parent="."]
-margin_left = -911.0
-margin_top = -111.0
-margin_right = 878.0
-margin_bottom = 189.0
-custom_fonts/font = SubResource( 13 )
-custom_colors/font_color = Color( 0.584314, 0.160784, 0.152941, 1 )
-custom_colors/font_outline_modulate = Color( 0.560784, 0.388235, 0.388235, 1 )
-custom_colors/font_color_shadow = Color( 0.117647, 0.101961, 0.0705882, 1 )
-text = "correcto"
-align = 1
-valign = 1
-clip_text = true
-uppercase = true
-percent_visible = 0.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="animacion" type="AnimationPlayer" parent="resultado"]
-anims/correcto = SubResource( 14 )
-anims/incorrecto = SubResource( 15 )
 [connection signal="sel" from="." to="." method="_on_Pregunta_sel"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="btn_continuar" to="." method="_on_btn_continuar_pressed"]

@@ -107,12 +107,12 @@ script = ExtResource( 10 )
 
 [node name="musica_principal" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
-volume_db = -12.116
+volume_db = -0.771
 mix_target = 1
 
 [node name="ambiente" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
-volume_db = -17.165
+volume_db = -8.341
 autoplay = true
 
 [node name="text_score" type="Label" parent="."]

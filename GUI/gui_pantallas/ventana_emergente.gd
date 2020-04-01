@@ -29,9 +29,17 @@ func _on_animacion_animation_finished(anim_name):
 func _on_btn_aceptar_pressed():
 	$btn_aceptar/fx_aceptar.play()
 	if opcion == 1:
+		get_tree().change_scene("res://Inicio/Inicio.tscn")
+		get_tree().paused = false
 		print("Volviendo al menu")
 	elif opcion == 2:
+		get_tree().reload_current_scene()
+		Score.mezclar()
+		get_tree().paused = false
+		Score.score=10
 		print("Reiniciando nivel...")
+	elif opcion == 3:
+		get_tree().quit()
 	$animacion.play("salida")
 	
 func set_opcion(opc):

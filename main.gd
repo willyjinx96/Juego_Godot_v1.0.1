@@ -21,6 +21,7 @@ var bandera = preload("res://GUI/bandera_animacion.tscn")
 var genoveva = preload("res://Genoveva/genoveva.tscn")
 
 func _ready():
+	Score.mezclar()
 	crear_vidas()
 	crear_tambores()
 	play_musica()

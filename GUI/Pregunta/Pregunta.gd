@@ -5,6 +5,10 @@ var resp_correcta
 var index_selected
 signal sel
 # Called when the node enters the scene tree for the first time.
+var resp_correcta
+var index_selected
+signal sel
+
 func _ready():
 	$fx_entrada.play()
 	$btn_continuar.disabled=true
@@ -35,10 +39,14 @@ func _ready():
 		'respuesta':consulta_res[0]['opcion'],
 		'tipo':consulta_res[0]['tipo']
 		}
-
+	
 	opciones.append(respuesta_correcta.respuesta)
 	print(opciones)
+<<<<<<< Updated upstream
 	resp_correcta= respuesta_correcta.respuesta
+=======
+	
+>>>>>>> Stashed changes
 	#Realizamos la consulta para sacar las opciones
 	var tipo = respuesta_correcta.tipo
 
@@ -52,7 +60,6 @@ func _ready():
 			}
 			opciones.append(opc.opcion)
 			cont+=1
-
 	opciones.shuffle()
 
 	print(pregunta.pregunta)
@@ -61,33 +68,46 @@ func _ready():
 		$ItemList.add_item(str(i))
 
 	print(opciones)
+<<<<<<< Updated upstream
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+=======
+	#Para sacar el texto de la respuesta correcta
+	resp_correcta = respuesta_correcta.respuesta
+>>>>>>> Stashed changes
 
 func _on_anim_pregunta_animation_finished(anim_name):
 	if anim_name == "salida":
 		queue_free()
-
 
 func _on_btn_continuar_pressed():
 	$anim_pregunta.play("salida")
 	$fx_salida.play()
 	get_tree().paused=false
 
+<<<<<<< Updated upstream
 func _on_ItemList_item_selected(index):
 	index_selected=index
 	if not $ItemList.is_item_disabled(index):
 		emit_signal("sel")
 	$btn_continuar.disabled=false
 
+=======
+
+#Para verificar si es correcta la opcion del item_list
+func _on_ItemList_item_selected(index):	
+	index_selected = index
+	emit_signal("sel")
+>>>>>>> Stashed changes
 
 func _on_Pregunta_sel():
 	var option_selected = $ItemList.get_item_text(index_selected)
 	if resp_correcta == option_selected:
+<<<<<<< Updated upstream
 		Score.score+=40
 		$resultado/animacion.play("correcto")
 		$fx_correcto.play()
@@ -103,3 +123,10 @@ func _on_Pregunta_sel():
 	for i in $ItemList.get_item_count():
 		if i !=index_selected:
 			$ItemList.set_item_disabled(i,true)
+=======
+		print("CORRECTO")
+	else:
+		print("INCORRECTO")
+	pass
+
+>>>>>>> Stashed changes

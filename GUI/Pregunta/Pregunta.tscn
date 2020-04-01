@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://assets/gui/png/Window.png" type="Texture" id=1]
 [ext_resource path="res://Fuentes/Candy_Randy/candyrandy.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,11 @@
 [ext_resource path="res://assets/gui/botones/boton_plomo.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/botones/boton_Verde.png" type="Texture" id=7]
 [ext_resource path="res://assets/gui/botones/boton_rojo.png" type="Texture" id=8]
+[ext_resource path="res://SoundEffects/Efectos/Menu FX example/Item1B.wav" type="AudioStream" id=9]
+[ext_resource path="res://SoundEffects/Efectos/Menu FX example/Item1A.wav" type="AudioStream" id=10]
+[ext_resource path="res://Fuentes/Error.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/positive.wav" type="AudioStream" id=12]
+[ext_resource path="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/negative_2.wav" type="AudioStream" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -77,6 +82,90 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 527.958, 304.726 ), Vector2( 526.01, 365.115 ), Vector2( 526.01, 322.259 ), Vector2( 526.01, 363.167 ), Vector2( 526.01, 343.687 ), Vector2( 549.386, 452.776 ), Vector2( 796.785, 937.833 ) ]
+}
+
+[sub_resource type="DynamicFont" id=13]
+size = 300
+font_data = ExtResource( 11 )
+
+[sub_resource type="Animation" id=14]
+resource_name = "correcto"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.129412, 0.384314, 0.0980392, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=15]
+resource_name = "incorrecto"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_colors/font_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.584314, 0.160784, 0.152941, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ), Vector2( 1.1, 1.1 ), Vector2( 1, 1 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
 }
 
 [node name="Pregunta" type="Sprite"]
@@ -167,6 +256,41 @@ __meta__ = {
 autoplay = "entrada"
 anims/entrada = SubResource( 11 )
 anims/salida = SubResource( 12 )
+
+[node name="fx_entrada" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="fx_salida" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="resultado" type="Label" parent="."]
+margin_left = -898.0
+margin_top = -96.0
+margin_right = 858.0
+margin_bottom = 204.0
+rect_min_size = Vector2( 1, 1 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/font_color = Color( 0.129412, 0.384314, 0.0980392, 1 )
+text = "correcto"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+percent_visible = 0.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="animacion" type="AnimationPlayer" parent="resultado"]
+anims/correcto = SubResource( 14 )
+anims/incorrecto = SubResource( 15 )
+
+[node name="fx_correcto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
+[node name="fx_incorrecto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = 9.455
 [connection signal="sel" from="." to="." method="_on_Pregunta_sel"]
 [connection signal="item_selected" from="ItemList" to="." method="_on_ItemList_item_selected"]
 [connection signal="pressed" from="btn_continuar" to="." method="_on_btn_continuar_pressed"]

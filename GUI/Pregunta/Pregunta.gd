@@ -43,7 +43,11 @@ func _ready():
 	opciones.append(respuesta_correcta.respuesta)
 	print(opciones)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 	resp_correcta= respuesta_correcta.respuesta
+=======
+	
+>>>>>>> Stashed changes
 =======
 	
 >>>>>>> Stashed changes
@@ -69,12 +73,17 @@ func _ready():
 
 	print(opciones)
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
+=======
+	#Para sacar el texto de la respuesta correcta
+	resp_correcta = respuesta_correcta.respuesta
+>>>>>>> Stashed changes
 =======
 	#Para sacar el texto de la respuesta correcta
 	resp_correcta = respuesta_correcta.respuesta
@@ -90,6 +99,7 @@ func _on_btn_continuar_pressed():
 	get_tree().paused=false
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 func _on_ItemList_item_selected(index):
 	index_selected=index
 	if not $ItemList.is_item_disabled(index):
@@ -97,16 +107,22 @@ func _on_ItemList_item_selected(index):
 	$btn_continuar.disabled=false
 
 =======
+=======
+>>>>>>> Stashed changes
 
 #Para verificar si es correcta la opcion del item_list
 func _on_ItemList_item_selected(index):	
 	index_selected = index
 	emit_signal("sel")
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
 
 func _on_Pregunta_sel():
 	var option_selected = $ItemList.get_item_text(index_selected)
 	if resp_correcta == option_selected:
+<<<<<<< Updated upstream
 <<<<<<< Updated upstream
 		Score.score+=40
 		$resultado/animacion.play("correcto")
@@ -124,9 +140,14 @@ func _on_Pregunta_sel():
 		if i !=index_selected:
 			$ItemList.set_item_disabled(i,true)
 =======
+=======
+>>>>>>> Stashed changes
 		print("CORRECTO")
 	else:
 		print("INCORRECTO")
 	pass
 
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

@@ -1,9 +1,9 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://assets/gui/png/Window.png" type="Texture" id=1]
 [ext_resource path="res://Fuentes/Candy_Randy/candyrandy.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://GUI/Pregunta/Pregunta.gd" type="Script" id=3]
-[ext_resource path="res://Fuentes/Porky_s/porkh.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Fuentes/JosefinSans-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/gui/botones/boton_lechuga.png" type="Texture" id=5]
 [ext_resource path="res://assets/gui/botones/boton_plomo.png" type="Texture" id=6]
 [ext_resource path="res://assets/gui/botones/boton_Verde.png" type="Texture" id=7]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Fuentes/Error.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/positive.wav" type="AudioStream" id=12]
 [ext_resource path="res://SoundEffects/Efectos/GUI_Sound_Effects_by_Lokif/negative_2.wav" type="AudioStream" id=13]
+[ext_resource path="res://Fuentes/JosefinSans-SemiBoldItalic.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 size = 70
@@ -21,8 +22,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 36
+outline_size = 1
+outline_color = Color( 0.827451, 0.411765, 0.321569, 1 )
 extra_spacing_char = 5
-font_data = ExtResource( 4 )
+font_data = ExtResource( 14 )
 
 [sub_resource type="StyleBoxLine" id=3]
 color = Color( 0.870588, 0.705882, 0.584314, 1 )
@@ -41,10 +44,9 @@ color = Color( 0.870588, 0.705882, 0.584314, 1 )
 color = Color( 0.870588, 0.705882, 0.584314, 1 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 30
-outline_color = Color( 0.870588, 0.705882, 0.584314, 1 )
-extra_spacing_char = 7
-extra_spacing_space = 2
+size = 40
+outline_size = 1
+outline_color = Color( 0.807843, 0.545098, 0.352941, 1 )
 font_data = ExtResource( 4 )
 
 [sub_resource type="DynamicFont" id=10]
@@ -192,24 +194,26 @@ __meta__ = {
 }
 
 [node name="txt_pregunta" type="Label" parent="."]
-margin_left = -368.0
-margin_top = -140.0
-margin_right = 337.0
-margin_bottom = -4.0
+margin_left = -346.287
+margin_top = -143.305
+margin_right = 358.713
+margin_bottom = 55.695
 custom_fonts/font = SubResource( 2 )
-custom_colors/font_color = Color( 0.980392, 0.964706, 0.952941, 1 )
+custom_colors/font_color = Color( 0.827451, 0.411765, 0.321569, 1 )
 text = "ESTE ES UN TEXTO DE PREGUNTA PARA LA PRUEBA JEJEJE?"
 align = 1
+valign = 1
 autowrap = true
+uppercase = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="ItemList" type="ItemList" parent="."]
-margin_left = -308.0
-margin_top = 44.0
-margin_right = 304.0
-margin_bottom = 221.0
+margin_left = -358.0
+margin_top = 102.0
+margin_right = 356.0
+margin_bottom = 257.0
 custom_styles/cursor = SubResource( 3 )
 custom_styles/selected_focus = SubResource( 4 )
 custom_styles/bg_focus = SubResource( 5 )
@@ -218,7 +222,7 @@ custom_styles/selected = SubResource( 7 )
 custom_styles/bg = SubResource( 8 )
 custom_fonts/font = SubResource( 9 )
 custom_colors/guide_color = Color( 0.870588, 0.705882, 0.584314, 1 )
-custom_colors/font_color_selected = Color( 0.980392, 0.964706, 0.952941, 1 )
+custom_colors/font_color_selected = Color( 0.584314, 0.160784, 0.152941, 1 )
 custom_colors/font_color = Color( 0.686275, 0.501961, 0.360784, 1 )
 max_text_lines = 3
 auto_height = true
@@ -264,9 +268,9 @@ stream = ExtResource( 10 )
 stream = ExtResource( 9 )
 
 [node name="resultado" type="Label" parent="."]
-margin_left = -898.0
+margin_left = -887.315
 margin_top = -96.0
-margin_right = 858.0
+margin_right = 868.685
 margin_bottom = 204.0
 rect_min_size = Vector2( 1, 1 )
 custom_fonts/font = SubResource( 13 )

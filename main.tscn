@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Background/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Jugador/jugador.tscn" type="PackedScene" id=2]
@@ -13,6 +13,54 @@
 [ext_resource path="res://Fuentes/Bacarde/barcadesemital.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Fuentes/Bacarde/barcade.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://num_score.gd" type="Script" id=13]
+[ext_resource path="res://Fuentes/Error.ttf" type="DynamicFontData" id=14]
+
+[sub_resource type="DynamicFont" id=5]
+size = 150
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "anim"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 63.2988, 218.162 ), Vector2( 63.2988, 218.162 ), Vector2( 82.7791, -268.843 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/keys = {
+"times": PoolRealArray( 0.2, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "entrada"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 82.7791, -268.843 ), Vector2( 63.2988, 218.162 ), Vector2( 63.2988, 218.162 ) ]
+}
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -61,6 +109,29 @@ tracks/0/keys = {
 pause_mode = 2
 position = Vector2( 0, 2 )
 script = ExtResource( 3 )
+
+[node name="text_contador" type="Label" parent="."]
+pause_mode = 2
+margin_left = 83.0
+margin_top = -333.0
+margin_right = 989.0
+margin_bottom = -118.0
+rect_rotation = 0.354468
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 0.278431, 0.423529, 1, 1 )
+text = "hhhh"
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="text_contador"]
+pause_mode = 2
+anims/anim = SubResource( 6 )
+anims/entrada = SubResource( 7 )
 
 [node name="background" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
@@ -148,16 +219,12 @@ autoplay = "normal"
 anims/cambio = SubResource( 3 )
 anims/normal = SubResource( 4 )
 
-[node name="Label" type="Label" parent="."]
-margin_left = 546.0
-margin_top = 72.0
-margin_right = 639.0
-margin_bottom = 103.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="contador" type="Timer" parent="."]
+pause_mode = 2
+wait_time = 3.0
 [connection signal="fuego" from="jugador" to="." method="_on_jugador_fuego"]
 [connection signal="geno" from="jugador" to="." method="_on_jugador_geno"]
 [connection signal="finished" from="musica_principal" to="." method="_on_musica_principal_finished"]
 [connection signal="finished" from="ambiente" to="." method="_on_ambiente_finished"]
 [connection signal="animation_finished" from="num_score/AnimationPlayer" to="num_score" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="contador" to="." method="_on_contador_timeout"]

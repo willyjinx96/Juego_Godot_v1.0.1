@@ -4,6 +4,8 @@ const SQLite = preload("res://lib/gdsqlite.gdns")
 var resp_correcta
 var index_selected
 signal sel
+
+onready var main = get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$fx_entrada.play()
@@ -74,9 +76,10 @@ func _on_anim_pregunta_animation_finished(anim_name):
 
 
 func _on_btn_continuar_pressed():
+	main.cont_pausa()
 	$anim_pregunta.play("salida")
 	$fx_salida.play()
-	get_tree().paused=false
+	#get_tree().paused=false
 
 func _on_ItemList_item_selected(index):
 	index_selected=index

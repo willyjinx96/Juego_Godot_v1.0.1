@@ -25,6 +25,7 @@ func _ready():
 	crear_vidas()
 	crear_tambores()
 	play_musica()
+	#$text_contador.visible=false
 	
 func _process(delta):
 	var ventana = preload("res://GUI/gui_pantallas/ventana_pausa.tscn") 
@@ -34,6 +35,16 @@ func _process(delta):
 			get_tree().paused = true
 	
 	$num_score.text=("("+str(Score.score)+")")
+	#$text_contador.text=str(ceil($contador.time_left))
+	
+	if not $contador.is_stopped() :
+		#$text_contador.visible=true
+		#print(ceil($contador.time_left))
+		$text_contador.text=str(ceil($contador.time_left))
+	else:
+		$text_contador.text="CONTINUA...!!!"
+		pass
+		
 #	if Input.is_action_just_pressed("ui_left"):
 #		if banderas>0:
 #			var n_ban =bandera.instance()
@@ -150,3 +161,15 @@ func _on_ambiente_finished():
 	
 # este comentario es para ver los cambios en el git dev_willy
 
+
+
+func _on_contador_timeout():
+	if get_tree().paused == true:
+		get_tree().paused = false
+		$contador.stop()
+		$text_contador/AnimationPlayer.play("anim")
+
+func cont_pausa():
+	#$text_contador.visible=true
+	$contador.start()
+	$text_contador/AnimationPlayer.play("entrada")

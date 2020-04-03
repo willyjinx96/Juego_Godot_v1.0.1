@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	OS.center_window()
 	pass # Replace with function body.
 
 

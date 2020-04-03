@@ -1,5 +1,5 @@
 extends Sprite
-onready var main = get_node("/root/main")
+onready var main = get_parent()
 func _ready():
 	$animacion.play("entrada")
 	$fx_entrada.play()
@@ -8,7 +8,8 @@ func _ready():
 #funcion al presionar el boton volver
 func _on_btn_volver_pressed():
 	if get_tree().paused == true:
-		get_tree().paused = false
+		main.cont_pausa()
+		#get_tree().paused = false
 		$animacion.play("salida")
 		$fx_salida.play()
 

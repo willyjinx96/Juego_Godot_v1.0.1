@@ -25,8 +25,7 @@ func _on_jugar_pressed():
 
 
 func _on_tutorial_pressed():
-	print("Abriendo Tutorial..")
-	pass # Replace with function body.
+	get_tree().change_scene("res://tutorial/tutorial.tscn")
 
 
 

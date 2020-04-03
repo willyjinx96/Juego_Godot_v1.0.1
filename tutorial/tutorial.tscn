@@ -1,0 +1,65 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://assets/tutorial/tuto7.png" type="Texture" id=1]
+[ext_resource path="res://assets/tutorial/tuto3.png" type="Texture" id=2]
+[ext_resource path="res://assets/gui/botones/menu_azul.png" type="Texture" id=3]
+[ext_resource path="res://assets/tutorial/tuto6.png" type="Texture" id=4]
+[ext_resource path="res://assets/gui/botones/menu_verde.png" type="Texture" id=5]
+[ext_resource path="res://assets/gui/botones/boton_lechuga.png" type="Texture" id=6]
+[ext_resource path="res://assets/gui/botones/boton_amarillo.png" type="Texture" id=7]
+[ext_resource path="res://assets/tutorial/tuto1.png" type="Texture" id=8]
+[ext_resource path="res://assets/tutorial/tuto4.png" type="Texture" id=9]
+[ext_resource path="res://assets/tutorial/tuto2.png" type="Texture" id=10]
+[ext_resource path="res://tutorial/tutorial.gd" type="Script" id=11]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 9 ), ExtResource( 4 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ), ExtResource( 1 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[node name="AnimatedSprite" type="AnimatedSprite"]
+position = Vector2( 513.23, 301.598 )
+frames = SubResource( 1 )
+frame = 10
+playing = true
+script = ExtResource( 11 )
+
+[node name="btn_jugar" type="TextureButton" parent="."]
+margin_left = 60.0
+margin_top = 238.0
+margin_right = 486.0
+margin_bottom = 412.0
+rect_scale = Vector2( 0.4, 0.3 )
+texture_normal = ExtResource( 6 )
+texture_hover = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="btn_jugar"]
+margin_left = 53.033
+margin_top = 47.1405
+margin_right = 93.033
+margin_bottom = 61.1405
+rect_scale = Vector2( 8, 6 )
+text = "JUGAR"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="btn_menu" type="TextureButton" parent="."]
+margin_left = -102.988
+margin_top = 229.657
+margin_right = 76.0123
+margin_bottom = 409.657
+rect_scale = Vector2( 0.4, 0.37 )
+texture_normal = ExtResource( 5 )
+texture_hover = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="btn_jugar" to="." method="_on_btn_jugar_pressed"]
+[connection signal="pressed" from="btn_menu" to="." method="_on_btn_menu_pressed"]

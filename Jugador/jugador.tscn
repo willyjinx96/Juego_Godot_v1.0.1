@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Jugador/jugador.gd" type="Script" id=1]
 [ext_resource path="res://assets/personajes/Juancito/juan4_e.png" type="Texture" id=2]
@@ -12,19 +12,12 @@
 [ext_resource path="res://assets/personajes/Juancito/agachar_juan3.png" type="Texture" id=10]
 [ext_resource path="res://assets/personajes/Juancito/agachar_juan2.png" type="Texture" id=11]
 [ext_resource path="res://assets/personajes/Juancito/juan_agarra.png" type="Texture" id=12]
+[ext_resource path="res://SoundEffects/Efectos/Player/caminando.ogg" type="AudioStream" id=13]
+[ext_resource path="res://SoundEffects/Efectos/Player/jump_child.ogg" type="AudioStream" id=14]
+[ext_resource path="res://SoundEffects/Efectos/Player/pain_child.ogg" type="AudioStream" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "caminando",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
-"loop": false,
-"name": "ataque",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": false,
 "name": "down",
@@ -35,10 +28,20 @@ animations = [ {
 "name": "agarra",
 "speed": 2.0
 }, {
+"frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "ataque",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "lastimado",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "caminando",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -52,6 +55,7 @@ position = Vector2( 106.579, 493.312 )
 scale = Vector2( 0.148118, 0.1397 )
 frames = SubResource( 1 )
 animation = "caminando"
+frame = 3
 speed_scale = 2.0
 playing = true
 
@@ -59,5 +63,18 @@ playing = true
 position = Vector2( 103.595, 494.412 )
 scale = Vector2( 0.6, 1.9 )
 shape = SubResource( 2 )
+
+[node name="fx_salto" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+
+[node name="fx_caminando" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )
+volume_db = -21.431
+mix_target = 1
+
+[node name="fx_danio" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -7.564
 [connection signal="area_entered" from="." to="." method="_on_jugador_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_jugador_area_exited"]
+[connection signal="salto_sonido" from="." to="." method="_on_jugador_salto_sonido"]

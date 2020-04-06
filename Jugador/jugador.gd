@@ -10,6 +10,7 @@ var velocidad_salto = -1300
 var modificador_gravedad = 2.3
 onready var main = get_node("/root/main")
 
+signal salto_sonido
 var bandera = preload("res://GUI/bandera_animacion.tscn")
 
 var n_ban=bandera.instance()
@@ -21,7 +22,7 @@ signal geno
 
 func _ready():
 	set_position(pos)
-	$jugador_sprite.animation = "caminando"
+	normalidad()
 	
 func _physics_process(delta):
 	#variables para el movimiento
@@ -35,24 +36,30 @@ func _physics_process(delta):
 	else:
 		velocidad.y += gravedad *delta * modificador_gravedad
 	if Input.is_action_just_pressed("ui_up") and position == piso:
+		#emit_signal("salto_sonido")
+		$fx_salto.play()
 		velocidad.y = velocidad_salto
 	position += velocidad * delta
 	
+	
 	if get_position().y > piso.y:
 		set_position(piso)
+		#normalidad()
+		$fx_salto.stop()
 		velocidad = Vector2()
 	#para agacharse
 	if agacharse and not atacar:
 		$jugador_sprite.animation = "down"
 		$CollisionShape2D.position.x = 74.604
 		$CollisionShape2D.position.y = 514.211
+		$fx_caminando.stop()
 	if Input.is_action_just_released("ui_down"):
 		$jugador_sprite.animation = "caminando"
 		$CollisionShape2D.position.x = 71.068
 		$CollisionShape2D.position.y = 493.705
 		$CollisionShape2D.scale.x = 0.6
 		$CollisionShape2D.scale.y = 1.9
-			
+		$fx_caminando.play()
 	#Para el ataque
 	if atacar and not (saltar or agacharse):
 		if main.tambores > 0:
@@ -72,10 +79,14 @@ func _physics_process(delta):
 		
 func choca():
 	$jugador_sprite.animation = "lastimado"
+	$fx_danio.play()
 
 func normalidad():
 	$jugador_sprite.animation = "caminando"
-
+	$fx_caminando.play()
+	$fx_danio.stop()
+	$fx_salto.stop()
+	
 func agarrando():
 	$jugador_sprite.animation = "agarra"
 	#velocidad = Vector2(0,0)
@@ -106,3 +117,7 @@ func _on_jugador_area_exited(area):
 
 func _on_jugador_geno():
 	main.bandera=0
+
+
+func _on_jugador_salto_sonido():
+	$fx_salto.play()

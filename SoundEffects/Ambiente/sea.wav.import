@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sea.wav-6d78d21c9641df1af49cedc7b46cc1ff.sample"
+
+[deps]
+
+source_file="res://SoundEffects/Ambiente/sea.wav"
+dest_files=[ "res://.import/sea.wav-6d78d21c9641df1af49cedc7b46cc1ff.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

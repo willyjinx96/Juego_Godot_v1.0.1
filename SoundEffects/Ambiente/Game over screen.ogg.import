@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Game over screen.ogg-230038b7c09b806dc01a5dc392640140.oggstr"
+
+[deps]
+
+source_file="res://SoundEffects/Ambiente/Game over screen.ogg"
+dest_files=[ "res://.import/Game over screen.ogg-230038b7c09b806dc01a5dc392640140.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

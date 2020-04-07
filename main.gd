@@ -69,6 +69,7 @@ func quitar_vidas():
 		lista_vidas.resize(vidas)
 	else:
 		print("moriste")
+		get_tree().change_scene("res://GUI/gui_pantallas/game_over.tscn")
 
 func add_vidas():
 	if vidas < 3:

@@ -51,6 +51,14 @@ func _process(delta):
 #			n_ban.activa()
 	#Score.verf_score(Score.score)
 	
+	#limitar numero de preguntas a 50
+	print("NUM PREG: ", Score.num_pre)
+	if Score.num_pre > 1:
+		$text_contador.text="CONTINUA LA AVENTURA EN LA... GUERRA DEL CHACO!!!"		
+		get_tree().paused = true
+		#get_tree().change_scene("res://Background_noche/backgrou.nd_noche.tscn")
+ 
+	
 func crear_vidas():
 	#vidas =3
 	for i in vidas:
@@ -160,8 +168,6 @@ func play_musica():
 func _on_ambiente_finished():
 	$ambiente.play()
 	
-# este comentario es para ver los cambios en el git dev_willy
-
 
 
 func _on_contador_timeout():
@@ -174,3 +180,4 @@ func cont_pausa():
 	#$text_contador.visible=true
 	$contador.start()
 	$text_contador/AnimationPlayer.play("entrada")
+

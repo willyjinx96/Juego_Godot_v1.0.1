@@ -111,10 +111,10 @@ script = ExtResource( 3 )
 
 [node name="text_contador" type="Label" parent="."]
 pause_mode = 2
-margin_left = 83.0
-margin_top = -333.0
-margin_right = 989.0
-margin_bottom = -118.0
+margin_left = 82.7791
+margin_top = -268.843
+margin_right = 988.779
+margin_bottom = -53.843
 rect_rotation = 0.354468
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.278431, 0.423529, 1, 1 )
@@ -132,15 +132,14 @@ pause_mode = 2
 anims/anim = SubResource( 2 )
 anims/entrada = SubResource( 3 )
 
-[node name="background" parent="." instance=ExtResource( 1 )]
-pause_mode = 1
-position = Vector2( 274.939, 93.0783 )
-
 [node name="spawn_obtaculos" type="Position2D" parent="."]
 pause_mode = 1
 position = Vector2( 1081.88, 514.774 )
 scale = Vector2( 3, 3 )
 script = ExtResource( 5 )
+
+[node name="background" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
 
 [node name="jugador" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
@@ -231,3 +230,5 @@ script = ExtResource( 15 )
 [connection signal="finished" from="ambiente" to="." method="_on_ambiente_finished"]
 [connection signal="animation_finished" from="num_score/AnimationPlayer" to="num_score" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="contador" to="." method="_on_contador_timeout"]
+
+[editable path="jugador"]

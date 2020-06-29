@@ -1,0 +1,74 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/background_noche/background/piso.png" type="Texture" id=1]
+[ext_resource path="res://assets/background_noche/background/cielo.png" type="Texture" id=2]
+[ext_resource path="res://assets/background_noche/background/nube.png" type="Texture" id=3]
+[ext_resource path="res://assets/background_noche/background/sol.png" type="Texture" id=4]
+[ext_resource path="res://assets/background_noche/background/sea.png" type="Texture" id=5]
+[ext_resource path="res://Background_noche/nubes.gd" type="Script" id=6]
+[ext_resource path="res://assets/background_noche/background/decor3.png" type="Texture" id=7]
+[ext_resource path="res://Background_noche/montañas.gd" type="Script" id=8]
+[ext_resource path="res://Background_noche/decoracion.gd" type="Script" id=9]
+[ext_resource path="res://Background_noche/suelo.gd" type="Script" id=10]
+
+[node name="background_noche" type="Node2D"]
+
+[node name="cielo" type="ParallaxBackground" parent="."]
+
+[node name="cielo" type="Sprite" parent="cielo"]
+position = Vector2( 512.024, 299.813 )
+scale = Vector2( 0.533886, 0.554785 )
+texture = ExtResource( 2 )
+
+[node name="nubes" type="ParallaxBackground" parent="."]
+script = ExtResource( 6 )
+
+[node name="nubes" type="ParallaxLayer" parent="nubes"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="nubes" type="Sprite" parent="nubes/nubes"]
+position = Vector2( 512.207, 301 )
+scale = Vector2( 0.533549, 0.553704 )
+texture = ExtResource( 3 )
+
+[node name="sol" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="sol"]
+
+[node name="sol" type="Sprite" parent="sol/ParallaxLayer"]
+position = Vector2( 510.172, 301.196 )
+scale = Vector2( 0.529345, 0.554067 )
+texture = ExtResource( 4 )
+
+[node name="montañas" type="ParallaxBackground" parent="."]
+script = ExtResource( 8 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="montañas"]
+motion_mirroring = Vector2( 1020, 0 )
+
+[node name="montañas" type="Sprite" parent="montañas/ParallaxLayer"]
+position = Vector2( 511.086, 299 )
+scale = Vector2( 0.533244, 0.557407 )
+texture = ExtResource( 5 )
+
+[node name="suelo" type="ParallaxBackground" parent="."]
+script = ExtResource( 10 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="suelo"]
+motion_mirroring = Vector2( 1020, 0 )
+
+[node name="suelo" type="Sprite" parent="suelo/ParallaxLayer"]
+position = Vector2( 512.445, 301.713 )
+scale = Vector2( 0.532925, 0.55153 )
+texture = ExtResource( 1 )
+
+[node name="decoracion" type="ParallaxBackground" parent="."]
+script = ExtResource( 9 )
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="decoracion"]
+motion_mirroring = Vector2( 1023, 0 )
+
+[node name="decoracion" type="Sprite" parent="decoracion/ParallaxLayer"]
+position = Vector2( 505.945, 301.813 )
+scale = Vector2( 0.526765, 0.551081 )
+texture = ExtResource( 7 )

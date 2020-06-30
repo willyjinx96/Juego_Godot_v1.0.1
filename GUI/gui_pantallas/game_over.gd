@@ -28,5 +28,6 @@ func _on_menu_pressed():
 func _on_reiniciar_pressed():
 	self.queue_free()
 	Score.score=10
+	Score.num_pre=0
 	get_tree().change_scene("res://main.tscn")
 	pass # Replace with function body.

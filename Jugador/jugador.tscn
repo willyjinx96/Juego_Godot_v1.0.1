@@ -28,19 +28,29 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "caminando",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "lastimado",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 23 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "agarra2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "lastimado2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "ataque2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ) ],
 "loop": false,
-"name": "down",
+"name": "dow2",
 "speed": 12.0
 }, {
 "frames": [ ExtResource( 8 ), ExtResource( 7 ) ],
@@ -53,25 +63,15 @@ animations = [ {
 "name": "agarra",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "lastimado2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "agarra2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ) ],
 "loop": false,
-"name": "dow2",
+"name": "down",
 "speed": 12.0
 }, {
-"frames": [ ExtResource( 22 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 5 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
-"name": "ataque2",
-"speed": 5.0
+"name": "caminando",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 16 ), ExtResource( 24 ), ExtResource( 23 ), ExtResource( 25 ) ],
 "loop": true,

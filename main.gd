@@ -28,7 +28,7 @@ var genoveva = preload("res://Genoveva/genoveva.tscn")
 func _ready():
 
 	#instanciamos el bg
-	borrar_bg()
+	#borrar_bg()
 	Score.mezclar()
 	crear_vidas()
 	crear_tambores()

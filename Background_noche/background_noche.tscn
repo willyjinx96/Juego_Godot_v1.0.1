@@ -1,15 +1,21 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://assets/background_noche/background/piso.png" type="Texture" id=1]
-[ext_resource path="res://assets/background_noche/background/cielo.png" type="Texture" id=2]
-[ext_resource path="res://assets/background_noche/background/nube.png" type="Texture" id=3]
-[ext_resource path="res://assets/background_noche/background/sol.png" type="Texture" id=4]
-[ext_resource path="res://assets/background_noche/background/sea.png" type="Texture" id=5]
+[ext_resource path="res://assets/escena_noche/background/piso.png" type="Texture" id=1]
+[ext_resource path="res://assets/escena_noche/background/cielo.png" type="Texture" id=2]
+[ext_resource path="res://assets/escena_noche/background/nube.png" type="Texture" id=3]
+[ext_resource path="res://assets/escena_noche/background/sol.png" type="Texture" id=4]
+[ext_resource path="res://assets/escena_noche/background/sea.png" type="Texture" id=5]
 [ext_resource path="res://Background_noche/nubes.gd" type="Script" id=6]
-[ext_resource path="res://assets/background_noche/background/decor3.png" type="Texture" id=7]
+[ext_resource path="res://assets/escena_noche/background/decor3.png" type="Texture" id=7]
 [ext_resource path="res://Background_noche/montañas.gd" type="Script" id=8]
 [ext_resource path="res://Background_noche/decoracion.gd" type="Script" id=9]
 [ext_resource path="res://Background_noche/suelo.gd" type="Script" id=10]
+
+
+
+
+
+
 
 [node name="background_noche" type="Node2D"]
 

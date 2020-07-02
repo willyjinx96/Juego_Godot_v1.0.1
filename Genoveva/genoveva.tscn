@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://assets/personajes/genoveva_bandera/genoveva5.png" type="Texture" id=1]
 [ext_resource path="res://assets/personajes/genoveva_bandera/genoveva4.png" type="Texture" id=2]
@@ -8,6 +8,12 @@
 [ext_resource path="res://assets/personajes/genoveva_bandera/genoveva1.png" type="Texture" id=6]
 [ext_resource path="res://Genoveva/genoveva.gd" type="Script" id=7]
 [ext_resource path="res://assets/personajes/genoveva_bandera/genoveva_entrega.png" type="Texture" id=8]
+[ext_resource path="res://assets/escena_noche/enfermera/enfermera5.png" type="Texture" id=9]
+[ext_resource path="res://assets/escena_noche/enfermera/enfermera6.png" type="Texture" id=10]
+[ext_resource path="res://assets/escena_noche/enfermera/enfermera4.png" type="Texture" id=11]
+[ext_resource path="res://assets/escena_noche/enfermera/enfermera3.png" type="Texture" id=12]
+[ext_resource path="res://assets/escena_noche/enfermera/enfermera1.png" type="Texture" id=13]
+[ext_resource path="res://assets/escena_noche/enfermera/enfermera2.png" type="Texture" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -19,6 +25,16 @@ animations = [ {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "entregar",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 12 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "caminando2",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "entregar2",
 "speed": 5.0
 } ]
 
@@ -38,7 +54,7 @@ __meta__ = {
 scale = Vector2( 0.148, 0.14 )
 frames = SubResource( 1 )
 animation = "caminando"
-frame = 5
+frame = 3
 playing = true
 flip_h = true
 

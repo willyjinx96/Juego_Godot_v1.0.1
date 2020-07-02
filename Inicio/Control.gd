@@ -23,8 +23,6 @@ func _on_jugar_pressed():
 	get_tree().change_scene("res://main.tscn")
 	self.queue_free()
 	
-
-
 func _on_tutorial_pressed():
 	get_tree().change_scene("res://tutorial/tutorial.tscn")
 	self.queue_free()

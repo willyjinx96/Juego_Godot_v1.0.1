@@ -67,10 +67,11 @@ func _process(delta):
 	#limitar numero de preguntas a 50
 	if Score.num_pre == 1:
 		print("NUM PREG: ", Score.num_pre)
+
 		#$text_contador.text="CONTINUA LA AVENTURA EN LA... GUERRA DEL CHACO!!!"		
 		#get_tree().paused = true
 		#get_tree().change_scene("res://Background_noche/backgrou.nd_noche.tscn")
-		if bbg2 == true:
+		if bbg2 == true :
 			bgs1.queue_free()
 			get_parent().add_child(bgs2)
 			bbg2=false

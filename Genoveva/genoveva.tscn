@@ -17,15 +17,15 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "caminando",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "entregar",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "caminando",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
@@ -53,7 +53,7 @@ __meta__ = {
 [node name="genoveva" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.148, 0.14 )
 frames = SubResource( 1 )
-animation = "entregar2"
+animation = "caminando"
 frame = 1
 playing = true
 flip_h = true

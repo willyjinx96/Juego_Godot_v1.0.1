@@ -1,7 +1,7 @@
 extends Node2D
 #variable para el numero de preguntas
 var num_pre = 0
-
+var preg_acertadas = 0
 var bg=[load("res://Background/background.tscn"),load("res://Background_noche/background_noche.tscn")]
 
 #variables Globales para todas las escenas

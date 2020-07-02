@@ -92,6 +92,10 @@ func _on_Pregunta_sel():
 	var option_selected = $ItemList.get_item_text(index_selected)
 	if resp_correcta == option_selected:
 		Score.score+=40
+		
+		#PREGUNTAS ACERTADAS
+		Score.preg_acertadas += 1
+		
 		$resultado/animacion.play("correcto")
 		$fx_correcto.play()
 		$resultado.text="correcto"

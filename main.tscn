@@ -141,6 +141,9 @@ script = ExtResource( 5 )
 pause_mode = 1
 position = Vector2( 55.6568, -4.07108 )
 
+[node name="jugador_sprite" parent="jugador" index="0"]
+frame = 3
+
 [node name="spawn_fireball" type="Position2D" parent="."]
 pause_mode = 1
 position = Vector2( 212.355, 491.314 )

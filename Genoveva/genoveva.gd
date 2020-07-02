@@ -12,10 +12,19 @@ func _process(delta):
 	tiempo_vida = tiempo_vida - delta
 	if tiempo_vida <= 0:
 		queue_free()
+#Para la escena dark
+	if Score.num_pre < 1:
+		$genoveva.animation = "caminando"
+	else :
+		$genoveva.animation = "caminando2"
 		
 func _on_genoveva_area_entered(area):
 	if area.name == "jugador":
-		$genoveva.animation = "entregar"
+		#Para la escena dark
+		if Score.num_pre < 1:
+			$genoveva.animation = "entregar"
+		else:
+			$genoveva.animation = "entregar2"
 		jugador.agarrando()
 		Score.score_vel+=40
 		Score.score +=40
@@ -28,7 +37,13 @@ func _on_genoveva_area_exited(area):
 
 
 func _on_genoveva_animation_finished():
-	if $genoveva.animation == "entregar":
-		$genoveva.animation = "caminando"
-		velocidad =Vector2(-400, 0)
-	
+	if Score.num_pre < 1:
+		if $genoveva.animation == "entregar":
+			$genoveva.animation = "caminando"
+			velocidad =Vector2(-400, 0)
+	#Para la escena dark
+	else :
+		if $genoveva.animation == "entregar2":
+			$genoveva.animation = "caminando2"
+			velocidad =Vector2(-400, 0)
+				

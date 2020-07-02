@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
+[ext_resource path="res://Background/background.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Jugador/jugador.tscn" type="PackedScene" id=2]
 [ext_resource path="res://main.gd" type="Script" id=3]
 [ext_resource path="res://spawn_fireball.gd" type="Script" id=4]
@@ -110,10 +111,10 @@ script = ExtResource( 3 )
 
 [node name="text_contador" type="Label" parent="."]
 pause_mode = 2
-margin_left = 82.7791
-margin_top = -268.843
-margin_right = 988.779
-margin_bottom = -53.843
+margin_left = 83.0
+margin_top = -333.0
+margin_right = 989.0
+margin_bottom = -118.0
 rect_rotation = 0.354468
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0.278431, 0.423529, 1, 1 )
@@ -131,6 +132,10 @@ pause_mode = 2
 anims/anim = SubResource( 2 )
 anims/entrada = SubResource( 3 )
 
+[node name="background" parent="." instance=ExtResource( 1 )]
+pause_mode = 1
+position = Vector2( 274.939, 93.0783 )
+
 [node name="spawn_obtaculos" type="Position2D" parent="."]
 pause_mode = 1
 position = Vector2( 1081.88, 514.774 )
@@ -140,9 +145,6 @@ script = ExtResource( 5 )
 [node name="jugador" parent="." instance=ExtResource( 2 )]
 pause_mode = 1
 position = Vector2( 55.6568, -4.07108 )
-
-[node name="jugador_sprite" parent="jugador" index="0"]
-frame = 3
 
 [node name="spawn_fireball" type="Position2D" parent="."]
 pause_mode = 1
@@ -229,5 +231,3 @@ script = ExtResource( 15 )
 [connection signal="finished" from="ambiente" to="." method="_on_ambiente_finished"]
 [connection signal="animation_finished" from="num_score/AnimationPlayer" to="num_score" method="_on_AnimationPlayer_animation_finished"]
 [connection signal="timeout" from="contador" to="." method="_on_contador_timeout"]
-
-[editable path="jugador"]

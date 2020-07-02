@@ -25,7 +25,6 @@ func _ready():
 	normalidad()
 	
 func _physics_process(delta):
-
 	#variables para el movimiento
 	var saltar = Input.is_action_pressed("ui_up")
 	var atacar = Input.is_action_just_pressed("ui_right")
@@ -50,39 +49,25 @@ func _physics_process(delta):
 		velocidad = Vector2()
 	#para agacharse
 	if agacharse and not atacar:
-		if Score.num_pre < 1:
-			$jugador_sprite.animation = "down"
-		else:
-			$jugador_sprite.animation = "down2"
+		$jugador_sprite.animation = "down"
 		$CollisionShape2D.position.x = 74.604
 		$CollisionShape2D.position.y = 514.211
 		$fx_caminando.stop()
-		
 	if Input.is_action_just_released("ui_down"):
-		if Score.num_pre < 1:
-			$jugador_sprite.animation = "caminando"
-		else:
-			$jugador_sprite.animation = "caminando2"
+		$jugador_sprite.animation = "caminando"
 		$CollisionShape2D.position.x = 71.068
 		$CollisionShape2D.position.y = 493.705
 		$CollisionShape2D.scale.x = 0.6
 		$CollisionShape2D.scale.y = 1.9
 		$fx_caminando.play()
-		
 	#Para el ataque
 	if atacar and not (saltar or agacharse):
 		if main.tambores > 0:
-			if Score.num_pre < 1: 
-				$jugador_sprite.animation = "ataque"
-			else:
-				$jugador_sprite.animation = "ataque2"
+			$jugador_sprite.animation = "ataque"
 			emit_signal("fuego")
-			
 	if Input.is_action_just_released("ui_right") and not agacharse:
-		if Score.num_pre < 1: 
-			$jugador_sprite.animation = "caminando"
-		else: 
-			$jugador_sprite.animation = "caminando2"
+		$jugador_sprite.animation = "caminando"
+		
 	# para llamar a Genoveva
 	if agarrar:
 		if main.banderas ==1:
@@ -93,30 +78,19 @@ func _physics_process(delta):
 			
 		
 func choca():
-	if Score.num_pre < 1:
-		$jugador_sprite.animation = "lastimado"
-	else :
-		$jugador_sprite.animation = "lastimado2"
+	$jugador_sprite.animation = "lastimado"
 	$fx_danio.play()
 
 func normalidad():
-	if Score.num_pre < 1:
-		$jugador_sprite.animation = "caminando"
-	else :
-		$jugador_sprite.animation = "caminando2"
+	$jugador_sprite.animation = "caminando"
 	$fx_caminando.play()
 	$fx_danio.stop()
 	$fx_salto.stop()
 	
 func agarrando():
-	if Score.num_pre < 1:
-		$jugador_sprite.animation = "agarra"
-	else :
-		$jugador_sprite.animation = "agarra2"
+	$jugador_sprite.animation = "agarra"
 	#velocidad = Vector2(0,0)
 	
-	#cambios en dev_willy
-
 func _on_jugador_area_entered(area):
 	if area.name == "bandera":
 		#main.bandera = 1
@@ -129,6 +103,7 @@ func _on_jugador_area_entered(area):
 #		area.pause_mode=Node.PAUSE_MODE_PROCESS
 func _on_jugador_area_exited(area):
 	if area.name == "genoveva":
+
 		get_tree().paused = false
 		normalidad()
 		main.banderas=0

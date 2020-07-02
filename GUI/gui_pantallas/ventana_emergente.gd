@@ -33,12 +33,10 @@ func _on_btn_aceptar_pressed():
 		get_tree().paused = false
 		print("Volviendo al menu")
 	elif opcion == 2:
-		self.queue_free()
-		get_tree().change_scene("res://main.tscn")
+		get_tree().reload_current_scene()
 		Score.mezclar()
 		get_tree().paused = false
 		Score.score=10
-		Score.num_pre=0
 		print("Reiniciando nivel...")
 	elif opcion == 3:
 		get_tree().quit()

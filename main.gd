@@ -2,11 +2,6 @@
 
 extends Node2D
 
-#Para el background
-var bbg1=true
-var bbg2=false
-var bgs1 = Score.bg[0].instance()
-var bgs2 = Score.bg[1].instance()
 #Para las vidas por defecto 3
 export var vidas = 3
 var c_vidas= vidas
@@ -26,9 +21,6 @@ var bandera = preload("res://GUI/bandera_animacion.tscn")
 var genoveva = preload("res://Genoveva/genoveva.tscn")
 
 func _ready():
-
-	#instanciamos el bg
-	#borrar_bg()
 	Score.mezclar()
 	crear_vidas()
 	crear_tambores()
@@ -36,11 +28,6 @@ func _ready():
 	#$text_contador.visible=false
 	
 func _process(delta):
-	if bbg1 == true:
-		bbg2=true
-		get_parent().add_child(bgs1)
-		bbg1=false
-	
 	var ventana = preload("res://GUI/gui_pantallas/ventana_pausa.tscn") 
 	if Input.is_action_just_pressed("ui_accept"):
 		if	get_tree().paused == false:
@@ -64,19 +51,6 @@ func _process(delta):
 #			n_ban.activa()
 	#Score.verf_score(Score.score)
 	
-	#limitar numero de preguntas a 50
-	if Score.num_pre == 1:
-		print("NUM PREG: ", Score.num_pre)
-
-		#$text_contador.text="CONTINUA LA AVENTURA EN LA... GUERRA DEL CHACO!!!"		
-		#get_tree().paused = true
-		#get_tree().change_scene("res://Background_noche/backgrou.nd_noche.tscn")
-		if bbg2 == true :
-			bgs1.queue_free()
-			get_parent().add_child(bgs2)
-			bbg2=false
- 
-	
 func crear_vidas():
 	#vidas =3
 	for i in vidas:
@@ -86,9 +60,6 @@ func crear_vidas():
 		nueva_vida.global_position.x += offset_vida * i
 		lista_vidas.append(nueva_vida)
 	
-func borrar_bg():
-	get_tree().queue_delete(bgs1)
-	get_tree().queue_delete(bgs2)
 
 func quitar_vidas():
 	if vidas > 1:
@@ -98,7 +69,6 @@ func quitar_vidas():
 		lista_vidas.resize(vidas)
 	else:
 		print("moriste")
-		borrar_bg()
 		get_tree().change_scene("res://GUI/gui_pantallas/game_over.tscn")
 
 func add_vidas():
@@ -190,6 +160,8 @@ func play_musica():
 func _on_ambiente_finished():
 	$ambiente.play()
 	
+# este comentario es para ver los cambios en el git dev_willy
+
 
 
 func _on_contador_timeout():
@@ -202,4 +174,3 @@ func cont_pausa():
 	#$text_contador.visible=true
 	$contador.start()
 	$text_contador/AnimationPlayer.play("entrada")
-

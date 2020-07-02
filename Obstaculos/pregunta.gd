@@ -16,9 +16,6 @@ func _process(delta):
 var scn_pregunta =preload("res://GUI/Pregunta/Pregunta.tscn")
 func _on_roca_area_entered(area):
 	if area.name == "jugador":
-		#Contar las preguntas que colisionan con el jugador
-		Score.num_pre += 1
-
 		var vtn_pregunta= scn_pregunta.instance()
 		get_parent().add_child(vtn_pregunta)
 		get_tree().paused =true

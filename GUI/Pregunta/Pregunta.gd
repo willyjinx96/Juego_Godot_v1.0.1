@@ -77,10 +77,13 @@ func _on_anim_pregunta_animation_finished(anim_name):
 
 func _on_btn_continuar_pressed():
 	main.cont_pausa()
+	#Llamamos a la animacion de salida de la pregunta
 	$anim_pregunta.play("salida")
+	#Llamamos al sonido de salida de la pregunta
 	$fx_salida.play()
 	#get_tree().paused=false
 
+#Para la seleccion de las opciones
 func _on_ItemList_item_selected(index):
 	index_selected=index
 	if not $ItemList.is_item_disabled(index):
@@ -89,19 +92,21 @@ func _on_ItemList_item_selected(index):
 
 
 func _on_Pregunta_sel():
+	#guardamos la opcion seleccionada en una variable
 	var option_selected = $ItemList.get_item_text(index_selected)
+	#Verificamos si la opcion seleccionada es la respuesta correcta
 	if resp_correcta == option_selected:
+		#le sumamos 40 puntos si es la respuesta correcta
 		Score.score+=40
-		
-		#PREGUNTAS ACERTADAS
-		Score.preg_acertadas += 1
-		
+		#Activamos las escenas y sonidos si son las respuestas correctas
 		$resultado/animacion.play("correcto")
 		$fx_correcto.play()
 		$resultado.text="correcto"
 		print("CORRECTO")
 	else:
+		#le restamos 40 puntos si es la respuesta incorrecta
 		Score.score-=40
+		#Activamos las escenas y sonidos si son las respuestas incorrectas
 		$resultado/animacion.play("incorrecto")
 		$resultado.text="incorrecto"
 		$fx_incorrecto.play()

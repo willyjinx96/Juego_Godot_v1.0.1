@@ -11,12 +11,6 @@
 [ext_resource path="res://Background_noche/decoracion.gd" type="Script" id=9]
 [ext_resource path="res://Background_noche/suelo.gd" type="Script" id=10]
 
-
-
-
-
-
-
 [node name="background_noche" type="Node2D"]
 
 [node name="cielo" type="ParallaxBackground" parent="."]

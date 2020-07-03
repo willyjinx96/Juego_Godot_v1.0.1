@@ -21,10 +21,18 @@ signal fuego
 signal geno
 
 func _ready():
+	if Score.anim == 1:
+		$jugador_sprite.animation = "caminando"
+	else :
+		$jugador_sprite.animation = "caminando2"
 	set_position(pos)
 	normalidad()
 	
 func _physics_process(delta):
+	#if Score.anim == 1:
+	#	$jugador_sprite.animation = "caminando"
+	#else :
+	#	$jugador_sprite.animation = "caminando2"
 	#variables para el movimiento
 	var saltar = Input.is_action_pressed("ui_up")
 	var atacar = Input.is_action_just_pressed("ui_right")

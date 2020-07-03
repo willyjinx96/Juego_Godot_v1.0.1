@@ -16,6 +16,8 @@ func _process(delta):
 var scn_pregunta =preload("res://GUI/Pregunta/Pregunta.tscn")
 func _on_roca_area_entered(area):
 	if area.name == "jugador":
+		#Contar preguntas
+		Score.num_preg += 1
 		var vtn_pregunta= scn_pregunta.instance()
 		get_parent().add_child(vtn_pregunta)
 		get_tree().paused =true

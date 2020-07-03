@@ -134,7 +134,7 @@ anims/entrada = SubResource( 3 )
 
 [node name="background" parent="." instance=ExtResource( 1 )]
 pause_mode = 1
-position = Vector2( 274.939, 93.0783 )
+position = Vector2( 670.939, 125.078 )
 
 [node name="spawn_obtaculos" type="Position2D" parent="."]
 pause_mode = 1

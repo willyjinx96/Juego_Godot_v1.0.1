@@ -50,6 +50,8 @@ func _process(delta):
 #			var n_ban =bandera.instance()
 #			n_ban.activa()
 	#Score.verf_score(Score.score)
+	if Score.num_preg > 1:
+		get_tree().change_scene("res://GUI/gui_pantallas/cambio_escenario.tscn")
 	
 func crear_vidas():
 	#vidas =3

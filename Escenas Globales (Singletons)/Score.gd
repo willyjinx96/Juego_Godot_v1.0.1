@@ -13,6 +13,8 @@ var musica= true
 
 #Para animaciones
 var anim =1
+var num_preg = 0
+var preg_correctas = 0
 
 var array_id =[]
 var cont =1

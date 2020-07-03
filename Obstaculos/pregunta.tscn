@@ -33,7 +33,7 @@ position = Vector2( 9.21876, 17.1567 )
 scale = Vector2( 0.888029, 1.06143 )
 frames = SubResource( 1 )
 animation = "roca"
-frame = 4
+frame = 1
 speed_scale = 2.0
 playing = true
 

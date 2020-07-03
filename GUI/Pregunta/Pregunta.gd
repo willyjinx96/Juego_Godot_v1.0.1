@@ -96,6 +96,7 @@ func _on_Pregunta_sel():
 	var option_selected = $ItemList.get_item_text(index_selected)
 	#Verificamos si la opcion seleccionada es la respuesta correcta
 	if resp_correcta == option_selected:
+		Score.preg_correctas += 1
 		#le sumamos 40 puntos si es la respuesta correcta
 		Score.score+=40
 		#Activamos las escenas y sonidos si son las respuestas correctas

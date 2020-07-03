@@ -1,5 +1,6 @@
 extends Sprite
 onready var main = get_parent()
+
 func _ready():
 	$animacion.play("entrada")
 	$fx_entrada.play()
@@ -20,7 +21,10 @@ func _on_animacion_animation_finished(anim_name):
 
 
 func _on_btn_sonido_pressed():
-	main.parar_musica()
+	if Score.musica==true:
+		main.parar_musica()
+	else:
+		main.play_musica()
 
 var vtn_emer = preload("res://GUI/gui_pantallas/ventana_emergente.tscn")
 

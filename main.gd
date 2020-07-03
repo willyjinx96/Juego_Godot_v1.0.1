@@ -148,13 +148,16 @@ func _on_jugador_geno():
 
 #Cuando ternina la cancion
 func _on_musica_principal_finished():
-	$musica_principal.play()
+	if Score.musica==true:
+		$musica_principal.play()
 
 func parar_musica():
-	$musica_principal.stop()
+	$musica_principal.playing=false
+	Score.musica=false
 
 func play_musica():
 	$musica_principal.play()
+	Score.musica =true
 
 
 func _on_ambiente_finished():

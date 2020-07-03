@@ -49,12 +49,20 @@ func _physics_process(delta):
 		velocidad = Vector2()
 	#para agacharse
 	if agacharse and not atacar:
-		$jugador_sprite.animation = "down"
+		if Score.anim==1:
+			$jugador_sprite.animation = "down"
+		else:
+			$jugador_sprite.animation = "down2"
+			
 		$CollisionShape2D.position.x = 74.604
 		$CollisionShape2D.position.y = 514.211
 		$fx_caminando.stop()
 	if Input.is_action_just_released("ui_down"):
-		$jugador_sprite.animation = "caminando"
+		if Score.anim==1:
+			$jugador_sprite.animation = "caminando"
+		else:
+			$jugador_sprite.animation = "caminando2"
+		
 		$CollisionShape2D.position.x = 71.068
 		$CollisionShape2D.position.y = 493.705
 		$CollisionShape2D.scale.x = 0.6
@@ -63,10 +71,13 @@ func _physics_process(delta):
 	#Para el ataque
 	if atacar and not (saltar or agacharse):
 		if main.tambores > 0:
-			$jugador_sprite.animation = "ataque"
+			if Score.anim==1:
+				$jugador_sprite.animation = "ataque"
+			else:
+				$jugador_sprite.animation = "ataque2"
 			emit_signal("fuego")
 	if Input.is_action_just_released("ui_right") and not agacharse:
-		$jugador_sprite.animation = "caminando"
+		normalidad()
 		
 	# para llamar a Genoveva
 	if agarrar:
@@ -78,17 +89,26 @@ func _physics_process(delta):
 			
 		
 func choca():
-	$jugador_sprite.animation = "lastimado"
+	if Score.anim==1:
+		$jugador_sprite.animation = "lastimado"
+	else:
+		$jugador_sprite.animation = "lastimado2"
 	$fx_danio.play()
 
 func normalidad():
-	$jugador_sprite.animation = "caminando"
+	if Score.anim==1:
+		$jugador_sprite.animation = "caminando"
+	else:
+		$jugador_sprite.animation = "caminando2"
 	$fx_caminando.play()
 	$fx_danio.stop()
 	$fx_salto.stop()
 	
 func agarrando():
-	$jugador_sprite.animation = "agarra"
+	if Score.anim==1:
+		$jugador_sprite.animation = "agarra"
+	else:
+		$jugador_sprite.animation = "agarra2"
 	#velocidad = Vector2(0,0)
 	
 func _on_jugador_area_entered(area):

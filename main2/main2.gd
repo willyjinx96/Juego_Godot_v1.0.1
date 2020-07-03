@@ -21,6 +21,7 @@ var bandera = preload("res://GUI/bandera_animacion.tscn")
 var genoveva = preload("res://Genoveva/genoveva.tscn")
 
 func _ready():
+	Score.anim=2
 	Score.mezclar()
 	crear_vidas()
 	crear_tambores()
@@ -28,6 +29,8 @@ func _ready():
 	#$text_contador.visible=false
 	
 func _process(delta):
+	Score.anim=2
+	
 	var ventana = preload("res://GUI/gui_pantallas/ventana_pausa.tscn") 
 	if Input.is_action_just_pressed("ui_accept"):
 		if	get_tree().paused == false:
@@ -148,14 +151,16 @@ func _on_jugador_geno():
 
 #Cuando ternina la cancion
 func _on_musica_principal_finished():
-	$musica_principal.play()
+	if Score.musica==true:
+		$musica_principal.play()
 
 func parar_musica():
-	$musica_principal.stop()
+	$musica_principal.playing=false
+	Score.musica=false
 
 func play_musica():
 	$musica_principal.play()
-
+	Score.musica =true
 
 func _on_ambiente_finished():
 	$ambiente.play()

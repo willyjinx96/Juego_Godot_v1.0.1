@@ -8,6 +8,12 @@ var puntaje_max=0
 var velocidad_global = Vector2(0,0)
 export var cambio_vel=200
 
+#Para la musica
+var musica= true
+
+#Para animaciones
+var anim =1
+
 var array_id =[]
 var cont =1
 var limit=100

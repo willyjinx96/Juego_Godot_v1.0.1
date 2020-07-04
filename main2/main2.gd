@@ -21,7 +21,6 @@ var bandera = preload("res://GUI/bandera_animacion.tscn")
 var genoveva = preload("res://Genoveva/genoveva.tscn")
 
 func _ready():
-	Score.anim=2
 	Score.mezclar()
 	crear_vidas()
 	crear_tambores()
@@ -29,7 +28,6 @@ func _ready():
 	#$text_contador.visible=false
 	
 func _process(delta):
-	Score.anim=2
 	
 	var ventana = preload("res://GUI/gui_pantallas/ventana_pausa.tscn") 
 	if Input.is_action_just_pressed("ui_accept"):

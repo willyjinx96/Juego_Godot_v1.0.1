@@ -18,13 +18,16 @@ func _on_roca_area_entered(area):
 	if area.name == "jugador":
 		#Contar preguntas
 		Score.num_preg += 1
-		var vtn_pregunta= scn_pregunta.instance()
-		get_parent().add_child(vtn_pregunta)
-		get_tree().paused =true
-		jugador.choca()
+		if Score.num_preg==2:
+			get_tree().change_scene("res://GUI/gui_pantallas/cambio_escenario.tscn")
+		else:
+			var vtn_pregunta= scn_pregunta.instance()
+			get_parent().add_child(vtn_pregunta)
+			get_tree().paused =true
+			jugador.choca()
 		#main.quitar_vidas()
-		hide()
-		print("pregunta")
+			hide()
+			print("pregunta")
 	elif area.name == "fireball":
 		queue_free()
 

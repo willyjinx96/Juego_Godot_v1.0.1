@@ -2,6 +2,7 @@
 
 extends Node2D
 
+var preg=0
 #Para las vidas por defecto 3
 export var vidas = 3
 var c_vidas= vidas
@@ -50,9 +51,7 @@ func _process(delta):
 #			var n_ban =bandera.instance()
 #			n_ban.activa()
 	#Score.verf_score(Score.score)
-	if Score.num_preg > 1:
-		get_tree().change_scene("res://GUI/gui_pantallas/cambio_escenario.tscn")
-	
+
 func crear_vidas():
 	#vidas =3
 	for i in vidas:
@@ -71,6 +70,10 @@ func quitar_vidas():
 		lista_vidas.resize(vidas)
 	else:
 		print("moriste")
+		get_tree().change_scene("res://GUI/gui_pantallas/game_over.tscn")
+
+func cambiar_escena():
+	if Score.num_preg==1:
 		get_tree().change_scene("res://GUI/gui_pantallas/game_over.tscn")
 
 func add_vidas():
@@ -179,3 +182,4 @@ func cont_pausa():
 	#$text_contador.visible=true
 	$contador.start()
 	$text_contador/AnimationPlayer.play("entrada")
+	

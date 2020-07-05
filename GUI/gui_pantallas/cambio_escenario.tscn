@@ -98,10 +98,11 @@ __meta__ = {
 }
 
 [node name="text_score" type="Label" parent="."]
-margin_left = 608.881
-margin_top = 214.944
-margin_right = 704.881
-margin_bottom = 246.944
+margin_left = 593.325
+margin_top = 209.287
+margin_right = 689.325
+margin_bottom = 241.287
+rect_scale = Vector2( 1.28, 1.16 )
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.333333, 0.384314, 0.729412, 1 )
 text = "(12345)"
@@ -110,24 +111,26 @@ __meta__ = {
 }
 
 [node name="text_best" type="Label" parent="."]
-margin_left = 607.772
-margin_top = 261.048
-margin_right = 692.772
-margin_bottom = 293.048
+margin_left = 595.044
+margin_top = 251.149
+margin_right = 680.044
+margin_bottom = 283.149
+rect_scale = Vector2( 1.32527, 1.34835 )
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.333333, 0.384314, 0.729412, 1 )
+custom_colors/font_color = Color( 0.0470588, 0.505882, 0.0627451, 1 )
 text = "(50)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="text_preg" type="Label" parent="."]
-margin_left = 606.944
-margin_top = 312.219
-margin_right = 691.944
-margin_bottom = 344.219
+margin_left = 597.044
+margin_top = 302.319
+margin_right = 682.044
+margin_bottom = 334.319
+rect_scale = Vector2( 1.36419, 1.55096 )
 custom_fonts/font = SubResource( 3 )
-custom_colors/font_color = Color( 0.333333, 0.384314, 0.729412, 1 )
+custom_colors/font_color = Color( 0.364706, 0.0705882, 0.619608, 1 )
 text = "(50)"
 __meta__ = {
 "_edit_use_anchors_": false

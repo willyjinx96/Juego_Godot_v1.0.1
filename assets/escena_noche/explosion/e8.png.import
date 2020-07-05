@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/cruz_roja1.png-804011c947897160bdc8d60b4985626e.stex"
+path="res://.import/e8.png-a80f1209163f30e5c7a27f07c4d94134.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/escena_noche/botiquin/cruz_roja1.png"
-dest_files=[ "res://.import/cruz_roja1.png-804011c947897160bdc8d60b4985626e.stex" ]
+source_file="res://assets/escena_noche/explosion/e8.png"
+dest_files=[ "res://.import/e8.png-a80f1209163f30e5c7a27f07c4d94134.stex" ]
 
 [params]
 

@@ -52,10 +52,10 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="."]
-margin_left = 269.824
-margin_top = 246.073
-margin_right = 497.824
-margin_bottom = 290.073
+margin_left = 259.925
+margin_top = 223.446
+margin_right = 487.925
+margin_bottom = 267.446
 rect_pivot_offset = Vector2( 87.705, 107.444 )
 custom_fonts/font = SubResource( 2 )
 text = "Tu Puntaje:"
@@ -64,10 +64,10 @@ __meta__ = {
 }
 
 [node name="Label2" type="Label" parent="."]
-margin_left = 262.287
-margin_top = 354.602
-margin_right = 518.287
-margin_bottom = 398.602
+margin_left = 250.973
+margin_top = 302.276
+margin_right = 506.973
+margin_bottom = 346.276
 rect_pivot_offset = Vector2( 87.705, 107.444 )
 custom_fonts/font = SubResource( 2 )
 text = "Mejor Puntaje:"
@@ -75,11 +75,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Label3" type="Label" parent="."]
+margin_left = 255.216
+margin_top = 381.472
+margin_right = 611.216
+margin_bottom = 425.472
+rect_pivot_offset = Vector2( 87.705, 107.444 )
+custom_fonts/font = SubResource( 2 )
+text = "Preguntas correctas:"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="txt_score" type="Label" parent="."]
-margin_left = 536.551
-margin_top = 223.0
-margin_right = 727.551
-margin_bottom = 292.0
+margin_left = 535.137
+margin_top = 204.615
+margin_right = 726.137
+margin_bottom = 273.615
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.227451, 0.392157, 0.8, 1 )
 text = "(12345)"
@@ -88,13 +100,25 @@ __meta__ = {
 }
 
 [node name="txt_best" type="Label" parent="."]
-margin_left = 532.985
-margin_top = 328.478
-margin_right = 723.985
-margin_bottom = 397.478
+margin_left = 531.571
+margin_top = 276.152
+margin_right = 722.571
+margin_bottom = 345.152
 custom_fonts/font = SubResource( 3 )
 custom_colors/font_color = Color( 0.145098, 0.482353, 0.176471, 1 )
 text = "(12345)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="txt_preg" type="Label" parent="."]
+margin_left = 647.723
+margin_top = 351.515
+margin_right = 721.723
+margin_bottom = 420.515
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 0.439216, 0.145098, 0.482353, 1 )
+text = "(0)"
 __meta__ = {
 "_edit_use_anchors_": false
 }

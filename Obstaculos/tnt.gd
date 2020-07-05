@@ -10,7 +10,10 @@ signal choco
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$tnt.animation = "sin_explotar"
+	if Score.anim == 1:
+		$tnt.animation = "sin_explotar"
+	else:
+		$tnt.animation = "sin_explotar2"
 	print("sin explo")
 	$tnt.position.x = -2.555
 	$tnt.position.y = 8.068

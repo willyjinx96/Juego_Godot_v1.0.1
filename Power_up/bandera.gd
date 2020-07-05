@@ -4,6 +4,10 @@ var tiempo_vida = 5
 onready var main = get_parent()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if Score.anim == 1:
+		$bandera.animation = "bandera"
+	else:
+		$bandera.animation = "cruz"
 	pass # Replace with function body.
 
 func _process(delta):

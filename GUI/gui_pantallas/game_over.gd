@@ -14,6 +14,7 @@ func _ready():
 	$txt_score.text=("("+str(Score.score)+")")
 	#mostramos el mejor score de las partidas
 	$txt_best.text=("("+str(Score.puntaje_max)+")")
+	$txt_preg.text=("("+str(Score.preg_correctas)+")")
 	pass # Replace with function body.
 
 
@@ -31,5 +32,8 @@ func _on_menu_pressed():
 func _on_reiniciar_pressed():
 	self.queue_free()
 	Score.score=10
+	Score.num_preg = 0
+	Score.preg_correctas = 0
+	Score.anim = 1
 	get_tree().change_scene("res://main.tscn")
 	pass # Replace with function body.

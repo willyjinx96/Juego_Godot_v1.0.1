@@ -26,6 +26,7 @@ func _ready():
 	crear_vidas()
 	crear_tambores()
 	play_musica()
+	Score.anim = 1
 	#$text_contador.visible=false
 	
 func _process(delta):

@@ -22,6 +22,11 @@ animations = [ {
 "name": "caminando",
 "speed": 7.0
 }, {
+"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
+"loop": false,
+"name": "entregar2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ), ExtResource( 8 ) ],
 "loop": false,
 "name": "entregar",
@@ -31,11 +36,6 @@ animations = [ {
 "loop": true,
 "name": "caminando2",
 "speed": 7.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 9 ) ],
-"loop": false,
-"name": "entregar2",
-"speed": 5.0
 } ]
 
 [sub_resource type="CapsuleShape2D" id=2]
@@ -54,6 +54,7 @@ __meta__ = {
 scale = Vector2( 0.148, 0.14 )
 frames = SubResource( 1 )
 animation = "caminando"
+frame = 4
 playing = true
 flip_h = true
 

@@ -1,7 +1,13 @@
 extends AnimatedSprite
 
 func activa():
-	self.animation = "activa"
+	if Score.anim == 1:
+		self.animation = "activa"
+	else:
+		self.animation = "activa2"
 	
 func inactiva():
-	self.animation = "inactiva"
+	if Score.anim == 1:
+		self.animation = "inactiva"
+	else:
+		self.animation = "inactiva2"
